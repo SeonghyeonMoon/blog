@@ -5,12 +5,10 @@
 body {
   background-color: #FFFFFF;
   color: #404040;
+  transition: .2s;
 }
 
-/*dark mode*/
-@media (prefers-color-scheme: dark) {
-  body {
-    background-color: #191919;
-    color: #FFFFFF;
-  }
+body.dark {
+  background-color: #191919;
+  color: #FFFFFC;
 }
