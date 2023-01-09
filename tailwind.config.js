@@ -17,6 +17,7 @@ module.exports = {
       purple: { light: '#E8DEEE', dark: '#492F64' },
       brown: { light: '#FDE4CF', dark: '#603B2C' },
       gray: { light: '#E2E3E0', dark: '#5A5A5A' },
+      hr: { light: '#37352f29', dark: '#ffffff21' },
     },
   },
   safelist: [
