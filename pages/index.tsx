@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import { fetchPosts } from '@/apis/notion';
+import DarkModeToggleButton from '@/components/DarkModeToggleButton';
 import type { InferGetStaticPropsType } from 'next';
 
 const Home = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => (
@@ -35,6 +36,7 @@ const Home = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => (
         <p>© Copyright 2023. Moon All rights reserved.</p>
       </footer>
     </main>
+    <DarkModeToggleButton />
   </>
 );
 
