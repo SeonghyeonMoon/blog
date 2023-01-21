@@ -1,0 +1,31 @@
+export const theme = {
+  background: '#FFFFFF',
+  default: '#F1F0F0',
+  font: '#404040',
+  pink: '#F5E0E9',
+  red: '#FFDAD9',
+  orange: '#FFE2DD',
+  yellow: '#FDECC8',
+  green: '#DBEDDB',
+  blue: '#D3E5EF',
+  purple: '#E8DEEE',
+  brown: '#EEE0DA',
+  gray: '#E2E3E0',
+  hr: '#DFDFDE',
+};
+
+export const darkTheme = {
+  background: '#191919',
+  default: '#373737',
+  font: '#FFFFFC',
+  pink: '#69314C',
+  red: '#6E3630',
+  orange: '#854C1D',
+  yellow: '#89632A',
+  green: '#2B593F',
+  blue: '#28456C',
+  purple: '#492F64',
+  brown: '#603B2C',
+  gray: '#5A5A5A',
+  hr: '#373737',
+};
