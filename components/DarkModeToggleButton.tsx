@@ -1,22 +1,21 @@
-import Image from 'next/image';
-import { useState } from 'react';
+import styled from '@emotion/styled';
 
-const DarkModeToggleButton = () => {
-  const [isDarkMode, setIsDarkMode] = useState(true);
-
-  const toggleDarkMode = () => {
-    setIsDarkMode(!isDarkMode);
-    document.body.classList.toggle('dark');
-  };
-
-  return (
-    <button
-      className='fixed right-10 bottom-10 rounded-full p-1 transition dark:bg-default-dark'
-      onClick={toggleDarkMode}
-    >
-      <Image src='/moon.png' alt='moon' width='30' height='30' />
-    </button>
-  );
-};
+const DarkModeToggleButton = styled.button`
+  background-color: ${({ theme }) => theme.default};
+  border: ${({ theme }) => `1px solid ${theme.hr}`};
+  position: fixed;
+  right: 40px;
+  bottom: 40px;
+  border-radius: 50%;
+  padding: 10px;
+  transition: all 0.25s linear;
+  &:hover {
+    cursor: pointer;
+    filter: brightness(0.9);
+  }
+  &:active {
+    filter: brightness(0.8);
+  }
+`;
 
 export default DarkModeToggleButton;
