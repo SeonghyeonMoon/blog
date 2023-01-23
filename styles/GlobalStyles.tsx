@@ -8,6 +8,10 @@ const GlobalStyles = () => {
       styles={css`
         ${reset}
 
+        * {
+          box-sizing: border-box;
+        }
+
         body {
           background: ${theme.background};
           color: ${theme.font};
