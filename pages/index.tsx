@@ -1,46 +1,61 @@
+import { css, useTheme } from '@emotion/react';
 import Head from 'next/head';
-import Link from 'next/link';
+import { Fragment } from 'react';
 import { fetchPosts } from '@/apis/notion';
-import DarkModeToggleButton from '@/components/DarkModeToggleButton';
+import Hr from '@/components/Block/Hr';
+import Footer from '@/components/Footer';
+import Post from '@/components/Post';
+import PostList from '@/components/PostList';
 import type { InferGetStaticPropsType } from 'next';
 
-const Home = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => (
-  <>
-    <Head>
-      가 <title>Moon</title>
-      <meta name='viewport' content='width=device-width, initial-scale=1' />
-      <link rel='icon' href='/favicon.ico' />
-    </Head>
-    <main>
-      <ul className='mx-auto w-auto min-w-max max-w-2xl'>
-        {posts.map(({ id, title, tags, date }) => (
-          <>
-            <Link href={`/${id}`} key={id}>
-              <li className='text-white p-2'>
-                <ul className='my-2 flex gap-1.5'>
-                  {tags.map(({ id, name, color }) => (
-                    <li key={id} className={`rounded bg-${color}-light px-1.5 dark:bg-${color}-dark`}>
-                      {name}
-                    </li>
-                  ))}
-                </ul>
-                <h2 className='my-2 text-2xl font-normal'>{title}</h2>
-                <p className='text-gray-dark'>{date}</p>
-              </li>
-            </Link>
-            <hr className='border-t-hr-light dark:border-t-hr-dark' />
-          </>
-        ))}
-      </ul>
-      <footer className='p-10 text-center'>
-        <p>© Copyright 2023. Moon All rights reserved.</p>
-      </footer>
-    </main>
-    <DarkModeToggleButton />
-  </>
-);
+const Index = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
+  const theme = useTheme();
+  return (
+    <>
+      <Head>
+        <title>Moon</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1' />
+        <link rel='icon' href='/favicon.ico' />
+      </Head>
+      <input
+        type='text'
+        css={css`
+          display: block;
+          max-width: 800px;
+          width: 100%;
+          height: 40px;
+          font-size: 16px;
+          border-radius: 5px;
+          border: transparent solid 2px;
+          margin: 0 auto 30px;
+          background: ${theme.default};
+          padding: 0 10px;
+          transition: all 0.2s linear;
+          color: ${theme.font};
 
-export default Home;
+          &:focus {
+            border-color: ${theme.gray};
+            outline: none;
+          }
+        `}
+        placeholder={'Search'}
+      />
+      <main>
+        <PostList>
+          {posts.map(({ id, title, tags, date }) => (
+            <Fragment key={id}>
+              <Post id={id} title={title} tags={tags} date={date} />
+              <Hr />
+            </Fragment>
+          ))}
+        </PostList>
+      </main>
+      <Footer />
+    </>
+  );
+};
+
+export default Index;
 
 export const getStaticProps = async () => {
   const databaseId = process.env.NOTION_DATABASE_ID;
