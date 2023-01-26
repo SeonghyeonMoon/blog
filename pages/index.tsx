@@ -3,7 +3,6 @@ import Head from 'next/head';
 import { Fragment } from 'react';
 import { fetchPosts } from '@/apis/notion';
 import Hr from '@/components/Block/Hr';
-import Footer from '@/components/Footer';
 import Post from '@/components/Post';
 import PostList from '@/components/PostList';
 import type { InferGetStaticPropsType } from 'next';
@@ -50,7 +49,6 @@ const Index = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
           ))}
         </PostList>
       </main>
-      <Footer />
     </>
   );
 };
