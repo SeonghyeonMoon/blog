@@ -1,3 +1,5 @@
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { dracula } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import Li from '@/components/Block/Li';
 import P from '@/components/Block/P';
 import Ul from '@/components/Block/Ul';
@@ -7,10 +9,11 @@ import H3 from './H3';
 import type { BlockType } from '@/apis/notion';
 
 type BlockProps = {
-  block: BlockType;
+  block: BlockType | undefined;
 };
 
 const Block = ({ block }: BlockProps) => {
+  if (!block) return null;
   const { type, text } = block;
   switch (type) {
     case 'paragraph':
@@ -46,6 +49,12 @@ const Block = ({ block }: BlockProps) => {
             </ol>
           ) : null}
         </Li>
+      );
+    case 'code':
+      return (
+        <SyntaxHighlighter language='javascript' style={dracula}>
+          {text}
+        </SyntaxHighlighter>
       );
     default:
       return null;
