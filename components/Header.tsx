@@ -1,5 +1,6 @@
 import { css } from '@emotion/react';
 import Image from 'next/image';
+import Link from 'next/link';
 import H1 from './Block/H1';
 import Button from './Button';
 
@@ -19,22 +20,27 @@ const Header = ({ toggleTheme }: HeaderProps) => {
         padding: 20px 0;
       `}
     >
-      <H1
-        css={css`
-          margin-top: 0;
-        `}
-      >
-        Moon
-      </H1>
+      <Link href='/'>
+        <H1
+          css={css`
+            margin-top: 0;
+          `}
+        >
+          Moon
+        </H1>
+      </Link>
       <ul
         css={css`
           display: flex;
           gap: 20px;
         `}
       >
-        <li>Home</li>
-        <li>Posts</li>
-        <li>About</li>
+        <li>
+          <Link href='/'>Home</Link>
+        </li>
+        <li>
+          <Link href='/about'>About</Link>
+        </li>
       </ul>
       <Button onClick={toggleTheme}>
         <Image src='/moon.png' alt='moon' width={15} height={15} />
