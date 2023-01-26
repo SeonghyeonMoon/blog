@@ -1,5 +1,4 @@
-import { css, Theme } from '@emotion/react';
-import Tag from '@/components/Tag';
+import { css, Theme, useTheme } from '@emotion/react';
 
 type TagListProps = {
   tags: {
@@ -10,6 +9,7 @@ type TagListProps = {
 };
 
 const TagList = ({ tags }: TagListProps) => {
+  const theme = useTheme();
   return (
     <ul
       css={css`
@@ -19,15 +19,23 @@ const TagList = ({ tags }: TagListProps) => {
       `}
     >
       {tags.map(({ id, name, color }) => (
-        <Tag
+        <li
           key={id}
-          color={color}
           onClick={() => {
             console.log(name);
           }}
+          css={css`
+            font-size: 14px;
+            background-color: ${theme[color || 'default']};
+            color: ${theme.font};
+            padding: 4px 6px 1px;
+            border-radius: 3px;
+            transition: all 0.25s linear;
+            list-style: none;
+          `}
         >
           {name}
-        </Tag>
+        </li>
       ))}
     </ul>
   );
