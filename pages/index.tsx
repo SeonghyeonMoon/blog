@@ -13,9 +13,7 @@ const Index = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <SearchBar />
-      <main>
-        <PostList postList={posts} />
-      </main>
+      <PostList postList={posts} />
     </>
   );
 };
