@@ -10,6 +10,7 @@ const P = styled.p<PProps>`
   color: ${({ color, theme }) => theme[color || 'font']};
   font-size: 16px;
   font-weight: 600;
+  line-height: 1.5;
   transition: all 0.25s linear;
 `;
 
