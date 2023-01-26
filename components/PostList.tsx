@@ -1,9 +1,6 @@
 import { css, Theme } from '@emotion/react';
 import Link from 'next/link';
 import { Fragment } from 'react';
-import H2 from '@/components/Block/H2';
-import Hr from '@/components/Block/Hr';
-import P from '@/components/Block/P';
 import TagList from '@/components/TagList';
 
 type Post = {
@@ -32,21 +29,25 @@ const PostList = ({ postList }: PostListProps) => {
     >
       {postList.map(({ id, title, tags, date }) => (
         <Fragment key={id}>
-          <li>
+          <li
+            css={css`
+              list-style: none;
+            `}
+          >
             <TagList tags={tags} />
             <Link href={`/${id}`} key={id}>
-              <H2
+              <h2
                 css={css`
                   margin-top: 0;
                   margin-bottom: 5px;
                 `}
               >
                 {title}
-              </H2>
+              </h2>
             </Link>
-            <P>{date}</P>
+            <p>{date}</p>
           </li>
-          <Hr />
+          <hr />
         </Fragment>
       ))}
     </ul>

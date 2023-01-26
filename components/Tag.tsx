@@ -12,6 +12,7 @@ const Tag = styled.li<TagProps>`
   padding: 4px 6px 1px;
   border-radius: 3px;
   transition: all 0.25s linear;
+  list-style: none;
 `;
 
 export default Tag;

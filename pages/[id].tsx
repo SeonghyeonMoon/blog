@@ -2,8 +2,6 @@ import { css } from '@emotion/react';
 import Head from 'next/head';
 import { fetchBlocks, fetchPage, fetchPosts } from '@/apis/notion';
 import Block from '@/components/Block/Block';
-import H2 from '@/components/Block/H2';
-import P from '@/components/Block/P';
 import TagList from '@/components/TagList';
 import type { GetStaticPropsContext, InferGetStaticPropsType } from 'next';
 
@@ -25,9 +23,9 @@ const Detail = ({ page, blocks }: InferGetStaticPropsType<typeof getStaticProps>
           max-width: 800px;
         `}
       >
-        <H2>{page.title}</H2>
+        <h2>{page.title}</h2>
         <TagList tags={page.tags} />
-        <P>{page.date}</P>
+        <p>{page.date}</p>
         {blocks.map((block, index) => (
           <Block block={block} key={index} />
         ))}

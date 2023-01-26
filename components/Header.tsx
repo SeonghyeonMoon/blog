@@ -1,7 +1,6 @@
 import { css } from '@emotion/react';
 import Image from 'next/image';
 import Link from 'next/link';
-import H1 from './Block/H1';
 import Button from './Button';
 
 type HeaderProps = {
@@ -21,13 +20,13 @@ const Header = ({ toggleTheme }: HeaderProps) => {
       `}
     >
       <Link href='/'>
-        <H1
+        <h1
           css={css`
             margin-top: 0;
           `}
         >
           Moon
-        </H1>
+        </h1>
       </Link>
       <ul
         css={css`

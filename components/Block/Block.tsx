@@ -1,11 +1,7 @@
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { dracula } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import Li from '@/components/Block/Li';
-import P from '@/components/Block/P';
 import Ul from '@/components/Block/Ul';
-import H1 from './H1';
-import H2 from './H2';
-import H3 from './H3';
 import type { BlockType } from '@/apis/notion';
 
 type BlockProps = {
@@ -17,13 +13,13 @@ const Block = ({ block }: BlockProps) => {
   const { type, text } = block;
   switch (type) {
     case 'paragraph':
-      return <P>{text}</P>;
+      return <p>{text}</p>;
     case 'heading_1':
-      return <H1>{text}</H1>;
+      return <h1>{text}</h1>;
     case 'heading_2':
-      return <H2>{text}</H2>;
+      return <h2>{text}</h2>;
     case 'heading_3':
-      return <H3>{text}</H3>;
+      return <h3>{text}</h3>;
     case 'bulleted_list_item':
       return (
         <Li>
