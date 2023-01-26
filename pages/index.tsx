@@ -1,9 +1,6 @@
 import { css, useTheme } from '@emotion/react';
 import Head from 'next/head';
-import { Fragment } from 'react';
 import { fetchPosts } from '@/apis/notion';
-import Hr from '@/components/Block/Hr';
-import Post from '@/components/Post';
 import PostList from '@/components/PostList';
 import type { InferGetStaticPropsType } from 'next';
 
@@ -40,14 +37,7 @@ const Index = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
         placeholder={'Search'}
       />
       <main>
-        <PostList>
-          {posts.map(({ id, title, tags, date }) => (
-            <Fragment key={id}>
-              <Post id={id} title={title} tags={tags} date={date} />
-              <Hr />
-            </Fragment>
-          ))}
-        </PostList>
+        <PostList postList={posts} />
       </main>
     </>
   );

@@ -1,11 +1,27 @@
-import { css } from '@emotion/react';
-import type { ReactNode } from 'react';
+import { css, Theme } from '@emotion/react';
+import Link from 'next/link';
+import { Fragment } from 'react';
+import H2 from '@/components/Block/H2';
+import Hr from '@/components/Block/Hr';
+import P from '@/components/Block/P';
+import TagList from '@/components/TagList';
 
-type PostListProps = {
-  children: ReactNode;
+type Post = {
+  id: string;
+  title: string;
+  tags: {
+    id: string;
+    name: string;
+    color: keyof Theme;
+  }[];
+  date: string;
 };
 
-const PostList = ({ children }: PostListProps) => {
+type PostListProps = {
+  postList: Post[];
+};
+
+const PostList = ({ postList }: PostListProps) => {
   return (
     <ul
       css={css`
@@ -14,7 +30,25 @@ const PostList = ({ children }: PostListProps) => {
         max-width: 800px;
       `}
     >
-      {children}
+      {postList.map(({ id, title, tags, date }) => (
+        <Fragment key={id}>
+          <li>
+            <TagList tags={tags} />
+            <Link href={`/${id}`} key={id}>
+              <H2
+                css={css`
+                  margin-top: 0;
+                  margin-bottom: 5px;
+                `}
+              >
+                {title}
+              </H2>
+            </Link>
+            <P>{date}</P>
+          </li>
+          <Hr />
+        </Fragment>
+      ))}
     </ul>
   );
 };
