@@ -1,4 +1,4 @@
-import { css } from '@emotion/react';
+import { css, useTheme } from '@emotion/react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Button from './Button';
@@ -8,13 +8,15 @@ type HeaderProps = {
 };
 
 const Header = ({ toggleTheme }: HeaderProps) => {
+  const theme = useTheme();
   return (
     <header
       css={css`
         position: sticky;
         top: 0;
-        backdrop-filter: blur(5px);
+        background-color: ${theme.background};
         z-index: 10;
+        transition: background-color 0.25s linear;
       `}
     >
       <div
