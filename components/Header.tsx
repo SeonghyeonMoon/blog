@@ -26,7 +26,7 @@ const Header = ({ toggleTheme }: HeaderProps) => {
           justify-content: space-between;
           max-width: 800px;
           margin: 0 auto;
-          padding: 20px 0;
+          padding: 10px 0;
         `}
       >
         <Link href='/'>
