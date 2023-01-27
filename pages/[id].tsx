@@ -22,6 +22,7 @@ const Detail = ({ page, blocks }: InferGetStaticPropsType<typeof getStaticProps>
       {blocks.map((block, index) => (
         <Block block={block} key={index} />
       ))}
+      <hr />
     </>
   );
 };
