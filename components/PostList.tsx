@@ -1,6 +1,6 @@
 import { css, Theme } from '@emotion/react';
+import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { Fragment } from 'react';
 import TagList from '@/components/TagList';
 
 type Post = {
@@ -28,7 +28,7 @@ const PostList = ({ postList }: PostListProps) => {
       `}
     >
       {postList.map(({ id, title, tags, date }) => (
-        <Fragment key={id}>
+        <motion.div initial={{ x: 50, opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} key={id}>
           <li
             css={css`
               list-style: none;
@@ -48,7 +48,7 @@ const PostList = ({ postList }: PostListProps) => {
             <p>{date}</p>
           </li>
           <hr />
-        </Fragment>
+        </motion.div>
       ))}
     </ul>
   );

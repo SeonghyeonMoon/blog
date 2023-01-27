@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import Head from 'next/head';
 import { fetchBlocks, fetchPage, fetchPosts } from '@/apis/notion';
 import Block from '@/components/Block/Block';
@@ -20,7 +21,9 @@ const Detail = ({ page, blocks }: InferGetStaticPropsType<typeof getStaticProps>
       <TagList tags={page.tags} />
       <p>{page.date}</p>
       {blocks.map((block, index) => (
-        <Block block={block} key={index} />
+        <motion.div initial={{ x: 50, opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} key={index}>
+          <Block block={block} />
+        </motion.div>
       ))}
       <hr />
     </>
