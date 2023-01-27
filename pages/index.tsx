@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import { fetchPosts } from '@/apis/notion';
+import Description from '@/components/Description';
 import PostList from '@/components/PostList';
 import SearchBar from '@/components/SearchBar';
 import type { InferGetStaticPropsType } from 'next';
@@ -12,7 +13,9 @@ const Index = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
+      <Description />
       <SearchBar />
+      <hr />
       <PostList postList={posts} />
     </>
   );
