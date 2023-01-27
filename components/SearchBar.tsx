@@ -15,7 +15,7 @@ const SearchBar = ({}: SearchBarProps) => {
         font-size: 16px;
         border-radius: 5px;
         border: transparent solid 2px;
-        margin: 0 auto 30px;
+        margin: 0 auto 10px;
         background: ${theme.default};
         padding: 0 10px;
         transition: all 0.2s linear;
