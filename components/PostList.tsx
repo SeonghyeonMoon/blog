@@ -28,27 +28,28 @@ const PostList = ({ postList }: PostListProps) => {
       `}
     >
       {postList.map(({ id, title, tags, date }) => (
-        <motion.div initial={{ x: 50, opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} key={id}>
-          <li
-            css={css`
-              list-style: none;
-            `}
-          >
-            <TagList tags={tags} />
-            <Link href={`/${id}`} key={id}>
-              <h2
-                css={css`
-                  margin-top: 0;
-                  margin-bottom: 5px;
-                `}
-              >
-                {title}
-              </h2>
-            </Link>
-            <p>{date}</p>
-          </li>
+        <motion.li
+          key={id}
+          initial={{ y: 50, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          css={css`
+            list-style: none;
+          `}
+        >
+          <TagList tags={tags} />
+          <Link href={`/${id}`} key={id}>
+            <h2
+              css={css`
+                margin-top: 0;
+                margin-bottom: 5px;
+              `}
+            >
+              {title}
+            </h2>
+          </Link>
+          <p>{date}</p>
           <hr />
-        </motion.div>
+        </motion.li>
       ))}
     </ul>
   );
