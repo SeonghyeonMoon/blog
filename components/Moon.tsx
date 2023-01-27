@@ -16,24 +16,27 @@ function Moon() {
     renderer.setClearColor(0x000000, 0);
 
     const camera = new THREE.PerspectiveCamera(50, 1);
-    camera.position.set(0, 0, 30);
+    camera.position.set(-8, 0, 18);
     const loader = new GLTFLoader();
 
     const light = new THREE.DirectionalLight(0xffffff, 1);
-    light.position.set(5, -5, 5);
+    light.position.set(2, 2, 2);
     scene.add(light);
 
-    loader.load('/nasa_cgi_moon_kit/scene.gltf', (gltf: { scene: THREE.Object3D<THREE.Event> }) => {
-      scene.add(gltf.scene);
-      renderer.render(scene, camera);
-
-      const animate = () => {
-        requestAnimationFrame(animate);
-        gltf.scene.rotation.y += 0.002;
+    loader.load(
+      '/dear_mum_and_dad_i_have_made_it_to_the_moon.../scene.gltf',
+      (gltf: { scene: THREE.Object3D<THREE.Event> }) => {
+        scene.add(gltf.scene);
         renderer.render(scene, camera);
-      };
-      animate();
-    });
+
+        const animate = () => {
+          requestAnimationFrame(animate);
+          gltf.scene.rotation.x += 0.005;
+          renderer.render(scene, camera);
+        };
+        animate();
+      },
+    );
   }, [theme.background]);
 
   return <canvas ref={canvas} width={200} height={200} />;
