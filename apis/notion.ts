@@ -57,6 +57,7 @@ enum BlockTypes {
   bulleted_list_item,
   numbered_list_item,
   code,
+  quote,
 }
 
 export type BlockType = {
@@ -152,6 +153,18 @@ const convertBlock = (block: any): BlockType | undefined => {
       ),
       children: null,
       language: block[block.type].language,
+    };
+  }
+  if (block.type === 'quote') {
+    return {
+      id: block.id,
+      type: block.type,
+      hasChildren: block.has_children,
+      text: block[block.type].rich_text.reduce(
+        (acc: string, { plain_text }: { plain_text: string }) => acc + plain_text,
+        '',
+      ),
+      children: null,
     };
   }
 };

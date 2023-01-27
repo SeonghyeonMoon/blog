@@ -52,6 +52,8 @@ const Block = ({ block }: BlockProps) => {
           {text}
         </SyntaxHighlighter>
       );
+    case 'quote':
+      return <blockquote>{text}</blockquote>;
     default:
       return null;
   }
