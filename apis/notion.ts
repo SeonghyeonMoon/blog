@@ -58,6 +58,7 @@ enum BlockTypes {
   numbered_list_item,
   code,
   quote,
+  bookmark,
 }
 
 export type BlockType = {
@@ -67,6 +68,11 @@ export type BlockType = {
   children: (BlockType | undefined)[] | null;
   hasChildren: boolean;
   language?: string;
+  url?: string;
+  image?: string;
+  description?: string;
+  title?: string;
+  favicon?: string;
 };
 
 const convertBlock = (block: any): BlockType | undefined => {
@@ -164,6 +170,15 @@ const convertBlock = (block: any): BlockType | undefined => {
         (acc: string, { plain_text }: { plain_text: string }) => acc + plain_text,
         '',
       ),
+      children: null,
+    };
+  }
+  if (block.type === 'bookmark') {
+    return {
+      id: block.id,
+      type: block.type,
+      hasChildren: false,
+      text: block[block.type].url,
       children: null,
     };
   }

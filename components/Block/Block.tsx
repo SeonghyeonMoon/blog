@@ -1,5 +1,6 @@
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { dracula } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+import Bookmark from '@/components/Block/Bookmark';
 import Li from '@/components/Block/Li';
 import Ul from '@/components/Block/Ul';
 import type { BlockType } from '@/apis/notion';
@@ -54,6 +55,17 @@ const Block = ({ block }: BlockProps) => {
       );
     case 'quote':
       return <blockquote>{text}</blockquote>;
+    case 'bookmark':
+      return (
+        <Bookmark
+          text={block.text}
+          title={block.title as string}
+          description={block.description as string}
+          favicon={block.favicon as string}
+          image={block.image as string}
+        />
+      );
+
     default:
       return null;
   }
