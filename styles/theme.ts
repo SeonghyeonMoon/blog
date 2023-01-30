@@ -1,4 +1,4 @@
-export const theme = {
+export const lightTheme = {
   background: '#FFFFFF',
   default: '#F1F0F0',
   font: '#404040',

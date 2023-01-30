@@ -1,4 +1,4 @@
-import { css, ThemeProvider } from '@emotion/react';
+import { css, ThemeProvider, useTheme } from '@emotion/react';
 import { AnimatePresence, motion, useScroll, useSpring } from 'framer-motion';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
@@ -7,7 +7,7 @@ import DarkModeToggleButton from '@/components/DarkModeToggleButton';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import GlobalStyles from '@/styles/GlobalStyles';
-import { darkTheme, theme } from '@/styles/theme';
+import { darkTheme, lightTheme } from '@/styles/theme';
 import type { AppProps } from 'next/app';
 
 const variants = {
@@ -28,6 +28,7 @@ const variants = {
 };
 
 const App = ({ Component, pageProps }: AppProps) => {
+  const theme = useTheme();
   const { asPath } = useRouter();
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, { stiffness: 800, damping: 100 });
@@ -39,7 +40,7 @@ const App = ({ Component, pageProps }: AppProps) => {
 
   return (
     <>
-      <ThemeProvider theme={isDark ? darkTheme : theme}>
+      <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
         <GlobalStyles />
         <Header toggleTheme={toggleTheme} />
         <DarkModeToggleButton onClick={toggleTheme}>
