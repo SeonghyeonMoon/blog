@@ -3,7 +3,8 @@ import { dracula } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import Bookmark from '@/components/Block/Bookmark';
 import Li from '@/components/Block/Li';
 import Ul from '@/components/Block/Ul';
-import type { BlockType } from '@/apis/notion';
+import Bookmark from './Bookmark';
+import type { BlockObjectResponse, RichTextItemResponse } from '@notionhq/client/build/src/api-endpoints';
 
 type BlockProps = {
   block: BlockType | undefined;

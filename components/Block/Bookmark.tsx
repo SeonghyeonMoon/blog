@@ -1,18 +1,18 @@
 import { css, useTheme } from '@emotion/react';
 
 type BookmarkProps = {
-  text: string;
+  url: string;
   title: string;
   description: string;
   favicon: string;
   image: string;
 };
 
-const Bookmark = ({ text, title, description, favicon, image }: BookmarkProps) => {
+const Bookmark = ({ url, title, description, favicon, image }: BookmarkProps) => {
   const theme = useTheme();
   return (
     <a
-      href={text}
+      href={url}
       css={css`
         display: flex;
         border: 1px solid ${theme.gray};
@@ -55,13 +55,8 @@ const Bookmark = ({ text, title, description, favicon, image }: BookmarkProps) =
             gap: 6px;
           `}
         >
-          <img
-            src={(text.split('/').slice(0, 3).join('') + favicon) as string}
-            alt={'favicon'}
-            width={16}
-            height={16}
-          />
-          {text}
+          <img src={(url.split('/').slice(0, 3).join('') + favicon) as string} alt={'favicon'} width={16} height={16} />
+          {url}
         </p>
       </div>
       <img
