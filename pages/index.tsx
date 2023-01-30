@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { fetchPosts } from '@/apis/notion';
+import { fetchPageList } from '@/apis/notion';
 import Description from '@/components/Description';
 import PostList from '@/components/PostList';
 import SearchBar from '@/components/SearchBar';
@@ -25,6 +25,6 @@ export default Index;
 
 export const getStaticProps = async () => {
   const databaseId = process.env.NOTION_DATABASE_ID;
-  const posts = await fetchPosts(databaseId!);
+  const posts = await fetchPageList(databaseId!);
   return { props: { posts } };
 };

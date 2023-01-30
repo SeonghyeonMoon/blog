@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import Head from 'next/head';
-import { fetchBlocks, fetchPage, fetchPosts } from '@/apis/notion';
+import { fetchBlocks, fetchPage, fetchPageList } from '@/apis/notion';
 import Block from '@/components/Block/Block';
 import TagList from '@/components/TagList';
 import type { GetStaticPropsContext, InferGetStaticPropsType } from 'next';
@@ -19,7 +19,6 @@ const Detail = ({ page, blocks }: InferGetStaticPropsType<typeof getStaticProps>
       </Head>
       <h2>{page.title}</h2>
       <TagList tags={page.tags} />
-      <p>{page.date}</p>
       {blocks.map((block, index) => (
         <motion.div initial={{ x: 50, opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} key={index}>
           <Block block={block} />
@@ -34,7 +33,7 @@ export default Detail;
 
 export const getStaticPaths = async () => {
   const databaseId = process.env.NOTION_DATABASE_ID;
-  const posts = await fetchPosts(databaseId!);
+  const posts = await fetchPageList(databaseId!);
   const paths = posts.map((post) => ({ params: { id: post.id } }));
   return { paths, fallback: false };
 };

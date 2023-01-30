@@ -11,7 +11,6 @@ type Post = {
     name: string;
     color: keyof Theme;
   }[];
-  date: string;
 };
 
 type PostListProps = {
@@ -27,29 +26,28 @@ const PostList = ({ postList }: PostListProps) => {
         max-width: 800px;
       `}
     >
-      {postList.map(({ id, title, tags, date }) => (
-        <motion.li
-          key={id}
-          initial={{ y: 50, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          css={css`
-            list-style: none;
-          `}
-        >
-          <TagList tags={tags} />
-          <Link href={`/${id}`} key={id}>
+      {postList.map(({ id, title, tags }) => (
+        <Link href={`/${id}`} key={id}>
+          <motion.li
+            key={id}
+            initial={{ y: 50, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            css={css`
+              list-style: none;
+            `}
+          >
+            <TagList tags={tags} />
             <h2
               css={css`
                 margin-top: 0;
-                margin-bottom: 5px;
+                margin-bottom: 10px;
               `}
             >
               {title}
             </h2>
-          </Link>
-          <p>{date}</p>
-          <hr />
-        </motion.li>
+            <hr />
+          </motion.li>
+        </Link>
       ))}
     </ul>
   );
