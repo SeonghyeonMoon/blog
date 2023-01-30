@@ -21,174 +21,24 @@ export const fetchPage = async (pageId: string) => {
   };
 };
 
-enum BlockTypes {
-  heading_1,
-  heading_2,
-  heading_3,
-  paragraph,
-  bulleted_list_item,
-  numbered_list_item,
-  code,
-  quote,
-  bookmark,
-}
+export const fetchBlocks = async (blockId: string) => {
+  const { results } = await notion.blocks.children.list({ block_id: blockId });
+  const blocks = results.filter(isFullBlock);
 
-export type BlockType = {
-  id: string;
-  type: keyof typeof BlockTypes;
-  text: string;
-  children: (BlockType | undefined)[] | null;
-  hasChildren: boolean;
-  language?: string;
-  url?: string;
-  image?: string;
-  description?: string;
-  title?: string;
-  favicon?: string;
-};
-
-const convertBlock = (block: any): BlockType | undefined => {
-  if (block.type === 'heading_1') {
-    return {
-      id: block.id,
-      type: block.type,
-      hasChildren: block.has_children,
-      text: block[block.type].rich_text.reduce(
-        (acc: string, { plain_text }: { plain_text: string }) => acc + plain_text,
-        '',
-      ),
-      children: null,
-    };
-  }
-  if (block.type === 'heading_2') {
-    return {
-      id: block.id,
-      type: block.type,
-      hasChildren: block.has_children,
-      text: block[block.type].rich_text.reduce(
-        (acc: string, { plain_text }: { plain_text: string }) => acc + plain_text,
-        '',
-      ),
-      children: null,
-    };
-  }
-  if (block.type === 'heading_3') {
-    return {
-      id: block.id,
-      type: block.type,
-      hasChildren: block.has_children,
-      text: block[block.type].rich_text.reduce(
-        (acc: string, { plain_text }: { plain_text: string }) => acc + plain_text,
-        '',
-      ),
-      children: null,
-    };
-  }
-  if (block.type === 'paragraph') {
-    return {
-      id: block.id,
-      type: block.type,
-      hasChildren: block.has_children,
-      text: block[block.type].rich_text.reduce(
-        (acc: string, { plain_text }: { plain_text: string }) => acc + plain_text,
-        '',
-      ),
-      children: null,
-    };
-  }
-  if (block.type === 'bulleted_list_item') {
-    return {
-      id: block.id,
-      type: block.type,
-      hasChildren: block.has_children,
-      text: block[block.type].rich_text.reduce(
-        (acc: string, { plain_text }: { plain_text: string }) => acc + plain_text,
-        '',
-      ),
-      children: null,
-    };
-  }
-  if (block.type === 'numbered_list_item') {
-    return {
-      id: block.id,
-      type: block.type,
-      hasChildren: block.has_children,
-      text: block[block.type].rich_text.reduce(
-        (acc: string, { plain_text }: { plain_text: string }) => acc + plain_text,
-        '',
-      ),
-      children: null,
-    };
-  }
-  if (block.type === 'code') {
-    return {
-      id: block.id,
-      type: block.type,
-      hasChildren: block.has_children,
-      text: block[block.type].rich_text.reduce(
-        (acc: string, { plain_text }: { plain_text: string }) => acc + plain_text,
-        '',
-      ),
-      children: null,
-      language: block[block.type].language,
-    };
-  }
-  if (block.type === 'quote') {
-    return {
-      id: block.id,
-      type: block.type,
-      hasChildren: block.has_children,
-      text: block[block.type].rich_text.reduce(
-        (acc: string, { plain_text }: { plain_text: string }) => acc + plain_text,
-        '',
-      ),
-      children: null,
-    };
-  }
-  if (block.type === 'bookmark') {
-    return {
-      id: block.id,
-      type: block.type,
-      hasChildren: false,
-      text: block[block.type].url,
-      children: null,
-    };
-  }
-};
-
-export const fetchBlocks = async (blockId: string): Promise<(BlockType | undefined)[]> => {
-  const { results } = await notion.blocks.children.list({
-    block_id: blockId,
-  });
-
-  const hasChildrenBlocks: BlockType[] = [];
-  const blocks = results
-    .filter(isFullBlock)
-    .map((block) => {
-      let result = convertBlock(block);
-      if (result && block.has_children) {
-        hasChildrenBlocks.push(result);
-      }
-      return result;
-    })
-    .filter((block) => block !== undefined);
-
+  const hasChildrenBlocks = blocks.filter((block) => block.has_children);
   while (hasChildrenBlocks.length > 0) {
     const block = hasChildrenBlocks.pop();
     if (!block) continue;
-    const { results } = await notion.blocks.children.list({
-      block_id: block.id,
+    const { results } = await notion.blocks.children.list({ block_id: block.id });
+    const blockObjectResponse = results.filter(isFullBlock);
+
+    // @ts-ignore
+    block.children = blockObjectResponse.map((block) => {
+      if (block.has_children) {
+        hasChildrenBlocks.push(block);
+      }
+      return block;
     });
-    block.children = results
-      .filter(isFullBlock)
-      .map((block) => {
-        const result = convertBlock(block);
-        if (result && block.has_children) {
-          hasChildrenBlocks.push(result);
-        }
-        return result;
-      })
-      .filter((block) => block !== undefined);
   }
 
   return blocks;
