@@ -1,34 +1,49 @@
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { dracula } from 'react-syntax-highlighter/dist/cjs/styles/prism';
-import Bookmark from '@/components/Block/Bookmark';
 import Li from '@/components/Block/Li';
+import Text from '@/components/Block/Text';
 import Ul from '@/components/Block/Ul';
 import Bookmark from './Bookmark';
 import type { BlockObjectResponse, RichTextItemResponse } from '@notionhq/client/build/src/api-endpoints';
 
 type BlockProps = {
-  block: BlockType | undefined;
+  block: BlockObjectResponse;
 };
 
 const Block = ({ block }: BlockProps) => {
-  if (!block) return null;
-  const { type, text } = block;
+  const { type } = block;
   switch (type) {
     case 'paragraph':
-      return <p>{text}</p>;
+      return (
+        <p>
+          <Text textList={block[type].rich_text} />
+        </p>
+      );
     case 'heading_1':
-      return <h1>{text}</h1>;
+      return (
+        <h1>
+          <Text textList={block[type].rich_text} />
+        </h1>
+      );
     case 'heading_2':
-      return <h2>{text}</h2>;
+      return (
+        <h2>
+          <Text textList={block[type].rich_text} />
+        </h2>
+      );
     case 'heading_3':
-      return <h3>{text}</h3>;
+      return (
+        <h3>
+          <Text textList={block[type].rich_text} />
+        </h3>
+      );
     case 'bulleted_list_item':
       return (
         <Li>
-          {text}
-          {block.children ? (
+          <Text textList={block[type].rich_text} />
+          {block.has_children ? (
             <Ul>
-              {block.children.map((child, index) => (
+              {block.children.map((child: BlockObjectResponse, index: number) => (
                 <Block block={child} key={index} />
               ))}
             </Ul>
@@ -38,10 +53,10 @@ const Block = ({ block }: BlockProps) => {
     case 'numbered_list_item':
       return (
         <Li>
-          {text}
-          {block.children ? (
+          <Text textList={block[type].rich_text} />
+          {block.has_children ? (
             <ol>
-              {block.children.map((child, index) => (
+              {block.children.map((child: BlockObjectResponse, index: number) => (
                 <Block block={child} key={index} />
               ))}
             </ol>
@@ -51,19 +66,23 @@ const Block = ({ block }: BlockProps) => {
     case 'code':
       return (
         <SyntaxHighlighter language='javascript' style={dracula}>
-          {text}
+          {block[type].rich_text.reduce((acc: string, cur: RichTextItemResponse) => acc + cur.plain_text, '')}
         </SyntaxHighlighter>
       );
     case 'quote':
-      return <blockquote>{text}</blockquote>;
+      return (
+        <blockquote>
+          <Text textList={block[type].rich_text} />
+        </blockquote>
+      );
     case 'bookmark':
       return (
         <Bookmark
-          text={block.text}
-          title={block.title as string}
-          description={block.description as string}
-          favicon={block.favicon as string}
-          image={block.image as string}
+          url={block[type].url}
+          title={block[type].title}
+          description={block[type].description}
+          favicon={block[type].favicon}
+          image={block[type].image}
         />
       );
 

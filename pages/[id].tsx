@@ -46,15 +46,18 @@ export const getStaticProps = async ({ params }: GetStaticPropsContext) => {
 
   const bookmarkDataInjectedBlock = await Promise.all(
     blocks.map(async (block) => {
-      if (block?.type !== 'bookmark') {
-        return block;
-      }
-      const { result } = await ogs({ url: block.text });
-      block.title = result.ogTitle || result.twitterTitle;
-      block.description = result.ogDescription || result.twitterDescription;
-      block.image = result.ogImage.url || result.twitterImage.url;
-      block.favicon = result.favicon;
-      return block;
+      if (block.type !== 'bookmark') return block;
+      const { result } = await ogs({ url: block.bookmark.url });
+      return {
+        ...block,
+        bookmark: {
+          ...block.bookmark,
+          title: result.ogTitle || result.twitterTitle || '',
+          description: result.ogDescription || result.twitterDescription || '',
+          image: (typeof result.ogImage === 'object' && !Array.isArray(result.ogImage) && result.ogImage.url) || '',
+          favicon: result.favicon || '',
+        },
+      };
     }),
   );
 
