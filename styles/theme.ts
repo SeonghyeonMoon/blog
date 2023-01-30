@@ -12,6 +12,7 @@ export const theme = {
   brown: '#EEE0DA',
   gray: '#E2E3E0',
   hr: '#DFDFDE',
+  code: '#ededeb',
 };
 
 export const darkTheme = {
@@ -28,4 +29,5 @@ export const darkTheme = {
   brown: '#603B2C',
   gray: '#5A5A5A',
   hr: '#373737',
+  code: '#292927',
 };
