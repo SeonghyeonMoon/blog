@@ -15,7 +15,8 @@ const TagList = ({ tags }: TagListProps) => {
       css={css`
         display: flex;
         gap: 6px;
-        margin-bottom: 5px;
+        margin-top: 10px;
+        margin-bottom: 10px;
       `}
     >
       {tags.map(({ id, name, color }) => (
