@@ -43,6 +43,7 @@ const Block = ({ block }: BlockProps) => {
           <Text textList={block[type].rich_text} />
           {block.has_children ? (
             <Ul>
+              {/*@ts-ignore*/}
               {block.children.map((child: BlockObjectResponse, index: number) => (
                 <Block block={child} key={index} />
               ))}
@@ -56,6 +57,7 @@ const Block = ({ block }: BlockProps) => {
           <Text textList={block[type].rich_text} />
           {block.has_children ? (
             <ol>
+              {/*@ts-ignore*/}
               {block.children.map((child: BlockObjectResponse, index: number) => (
                 <Block block={child} key={index} />
               ))}
@@ -76,16 +78,8 @@ const Block = ({ block }: BlockProps) => {
         </blockquote>
       );
     case 'bookmark':
-      return (
-        <Bookmark
-          url={block[type].url}
-          title={block[type].title}
-          description={block[type].description}
-          favicon={block[type].favicon}
-          image={block[type].image}
-        />
-      );
-
+      // @ts-ignore
+      return <Bookmark {...block[type]} />;
     default:
       return null;
   }
