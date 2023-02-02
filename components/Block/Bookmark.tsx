@@ -55,7 +55,7 @@ const Bookmark = ({ url, title, description, favicon, image }: BookmarkProps) =>
             gap: 6px;
           `}
         >
-          <img src={(url.split('/').slice(0, 3).join('') + favicon) as string} alt={'favicon'} width={16} height={16} />
+          <img src={favicon} alt={'favicon'} width={16} height={16} />
           {url}
         </p>
       </div>
