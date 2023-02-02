@@ -1,3 +1,4 @@
+import { css } from '@emotion/react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { dracula } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import Li from '@/components/Block/Li';
@@ -80,6 +81,18 @@ const Block = ({ block }: BlockProps) => {
     case 'bookmark':
       // @ts-ignore
       return <Bookmark {...block[type]} />;
+    case 'image':
+      console.log(block);
+      return (
+        <img
+          // @ts-ignore
+          src={block[type]?.file.url}
+          alt={block[type].caption ? block[type].caption[0].plain_text : ''}
+          css={css`
+            width: 100%;
+          `}
+        />
+      );
     default:
       return null;
   }
