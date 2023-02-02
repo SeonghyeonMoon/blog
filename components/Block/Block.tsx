@@ -82,7 +82,6 @@ const Block = ({ block }: BlockProps) => {
       // @ts-ignore
       return <Bookmark {...block[type]} />;
     case 'image':
-      console.log(block);
       return (
         <img
           // @ts-ignore
