@@ -12,12 +12,28 @@ const Text = ({ textList }: TextProps) => {
     <>
       {textList.map((value, idx) => {
         const {
+          href,
+          plain_text,
           annotations: { bold, code, italic, strikethrough, underline },
-          plain_text: text,
         } = value;
         const isAnnotated = bold || code || italic || strikethrough || underline;
         if (!isAnnotated) {
-          return <Fragment key={idx}>{text}</Fragment>;
+          return (
+            <Fragment key={idx}>
+              {href ? (
+                <a
+                  href={href}
+                  css={css`
+                    text-decoration: underline;
+                  `}
+                >
+                  {plain_text}
+                </a>
+              ) : (
+                plain_text
+              )}
+            </Fragment>
+          );
         }
 
         const codeStyle = css`
@@ -41,7 +57,18 @@ const Text = ({ textList }: TextProps) => {
               code && codeStyle,
             ]}
           >
-            {text}
+            {href ? (
+              <a
+                href={href}
+                css={css`
+                  text-decoration: underline;
+                `}
+              >
+                {plain_text}
+              </a>
+            ) : (
+              plain_text
+            )}
           </span>
         );
       })}
@@ -50,16 +77,3 @@ const Text = ({ textList }: TextProps) => {
 };
 
 export default Text;
-
-// <TextSpan key={idx} styles={{ bold, code, color, italic, strikethrough, underline }}>
-//   {text.link ? <LinkText href={text.url}>{text}</LinkText> : text}
-// </TextSpan>
-//
-//
-// export const LinkText = styled.a`
-//   font-size: 16px;
-//   text-decoration: underline;
-//   text-decoration-color: ${(p) => p.theme.gray};
-//   color: ${(p) => p.theme.gray};
-//   opacity: 0.8;
-// `;
