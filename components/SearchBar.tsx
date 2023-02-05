@@ -1,8 +1,10 @@
 import { css, useTheme } from '@emotion/react';
 
-type SearchBarProps = {};
+type SearchBarProps = {
+  handleSearch: (searchText: string) => void;
+};
 
-const SearchBar = ({}: SearchBarProps) => {
+const SearchBar = ({ handleSearch }: SearchBarProps) => {
   const theme = useTheme();
   return (
     <input
@@ -27,6 +29,7 @@ const SearchBar = ({}: SearchBarProps) => {
         }
       `}
       placeholder={'Search'}
+      onChange={(e) => handleSearch(e.target.value)}
     />
   );
 };

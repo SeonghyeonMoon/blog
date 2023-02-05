@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import { useState } from 'react';
 import { fetchPageList } from '@/apis/notion';
 import Description from '@/components/Description';
 import PostList from '@/components/PostList';
@@ -6,6 +7,15 @@ import SearchBar from '@/components/SearchBar';
 import type { InferGetStaticPropsType } from 'next';
 
 const Index = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
+  const [postList, setPostList] = useState(posts);
+
+  const handleSearch = (searchText: string) => {
+    const filteredPosts = posts.filter((post) => {
+      return post.title.toLowerCase().includes(searchText.toLowerCase());
+    });
+    setPostList(filteredPosts);
+  };
+
   return (
     <>
       <Head>
@@ -14,9 +24,9 @@ const Index = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <Description />
-      <SearchBar />
+      <SearchBar handleSearch={handleSearch} />
       <hr />
-      <PostList postList={posts} />
+      <PostList postList={postList} />
     </>
   );
 };
