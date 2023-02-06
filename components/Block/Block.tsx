@@ -1,4 +1,5 @@
-import { css } from '@emotion/react';
+import { css, useTheme } from '@emotion/react';
+import Image from 'next/image';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { dracula } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import Li from '@/components/Block/Li';
@@ -12,6 +13,7 @@ type BlockProps = {
 };
 
 const Block = ({ block }: BlockProps) => {
+  const theme = useTheme();
   const { type } = block;
   switch (type) {
     case 'paragraph':
@@ -82,15 +84,30 @@ const Block = ({ block }: BlockProps) => {
       // @ts-ignore
       return <Bookmark {...block[type]} />;
     case 'image':
+      console.log(block);
       return (
-        <img
-          // @ts-ignore
-          src={block[type]?.file.url}
-          alt={block[type].caption ? block[type].caption[0].plain_text : ''}
-          css={css`
-            width: 100%;
-          `}
-        />
+        <div>
+          <Image
+            // @ts-ignore
+            src={block[type]?.file.url}
+            alt={block[type].caption ? block[type].caption[0].plain_text : ''}
+            fill
+            css={css`
+              object-fit: scale-down;
+              position: relative !important;
+            `}
+          />
+          {block[type].caption ? (
+            <figcaption
+              css={css`
+                text-align: center;
+                color: ${theme.gray};
+              `}
+            >
+              {block[type].caption[0].plain_text}
+            </figcaption>
+          ) : null}
+        </div>
       );
     default:
       return null;
