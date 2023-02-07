@@ -2,9 +2,7 @@ import { css, useTheme } from '@emotion/react';
 import Image from 'next/image';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { dracula } from 'react-syntax-highlighter/dist/cjs/styles/prism';
-import Li from '@/components/Block/Li';
 import Text from '@/components/Block/Text';
-import Ul from '@/components/Block/Ul';
 import Bookmark from './Bookmark';
 import type { BlockObjectResponse, RichTextItemResponse } from '@notionhq/client/build/src/api-endpoints';
 
@@ -42,21 +40,43 @@ const Block = ({ block }: BlockProps) => {
       );
     case 'bulleted_list_item':
       return (
-        <Li>
+        <li
+          css={css`
+            padding: 3px 2px;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.25s linear;
+          `}
+        >
           <Text textList={block[type].rich_text} />
           {block.has_children ? (
-            <Ul>
+            <ul
+              css={css`
+                list-style: disc;
+
+                ul {
+                  list-style: circle;
+                }
+              `}
+            >
               {/*@ts-ignore*/}
               {block.children.map((child: BlockObjectResponse, index: number) => (
                 <Block block={child} key={index} />
               ))}
-            </Ul>
+            </ul>
           ) : null}
-        </Li>
+        </li>
       );
     case 'numbered_list_item':
       return (
-        <Li>
+        <li
+          css={css`
+            padding: 3px 2px;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.25s linear;
+          `}
+        >
           <Text textList={block[type].rich_text} />
           {block.has_children ? (
             <ol>
@@ -66,7 +86,7 @@ const Block = ({ block }: BlockProps) => {
               ))}
             </ol>
           ) : null}
-        </Li>
+        </li>
       );
     case 'code':
       return (
@@ -84,7 +104,6 @@ const Block = ({ block }: BlockProps) => {
       // @ts-ignore
       return <Bookmark {...block[type]} />;
     case 'image':
-      console.log(block);
       return (
         <div>
           <Image
