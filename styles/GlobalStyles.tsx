@@ -66,6 +66,41 @@ const GlobalStyles = () => {
           padding-left: 15px;
           transition: all 0.25s linear;
         }
+
+        table {
+          width: 100%;
+          border: ${theme.gray} solid 1px;
+          border-radius: 5px;
+
+          th {
+            padding: 10px;
+            border: ${theme.gray} solid 1px;
+            background-color: ${theme.default};
+            width: 110px;
+            transition: all 0.25s linear;
+            vertical-align: middle;
+          }
+          td {
+            padding: 5px 10px;
+            border: ${theme.gray} solid 1px;
+            transition: all 0.25s linear;
+            line-height: 1.5;
+            vertical-align: bottom;
+
+            a {
+              text-decoration: underline;
+            }
+
+            ul {
+              list-style: disc;
+              padding-left: 15px;
+
+              ul {
+                list-style: circle;
+              }
+            }
+          }
+        }
       `}
     />
   );
