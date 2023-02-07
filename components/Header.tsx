@@ -1,6 +1,7 @@
 import { css, useTheme } from '@emotion/react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import Button from './Button';
 
 type HeaderProps = {
@@ -9,6 +10,7 @@ type HeaderProps = {
 
 const Header = ({ toggleTheme }: HeaderProps) => {
   const theme = useTheme();
+  const router = useRouter();
   return (
     <header
       css={css`
@@ -42,12 +44,33 @@ const Header = ({ toggleTheme }: HeaderProps) => {
           css={css`
             display: flex;
             gap: 20px;
+            list-style: none;
           `}
         >
-          <li>
-            <Link href='/'>Home</Link>
+          <li
+            css={css`
+              transition: color 0.1s linear;
+              color: ${router.pathname === '/about' ? theme.gray : theme.font};
+
+              &:hover {
+                cursor: pointer;
+                color: ${theme.font};
+              }
+            `}
+          >
+            <Link href='/'>Posts</Link>
           </li>
-          <li>
+          <li
+            css={css`
+              transition: color 0.1s linear;
+              color: ${router.pathname !== '/about' ? theme.gray : theme.font};
+
+              &:hover {
+                cursor: pointer;
+                color: ${theme.font};
+              }
+            `}
+          >
             <Link href='/about'>About</Link>
           </li>
         </ul>
