@@ -55,7 +55,7 @@ const App = ({ Component, pageProps }: AppProps) => {
             exit='out'
             css={css`
               margin: 0 auto;
-              max-width: 800px;
+              max-width: 880px;
               overflow: hidden;
             `}
           >

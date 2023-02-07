@@ -24,7 +24,7 @@ const Header = ({ toggleTheme }: HeaderProps) => {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          max-width: 800px;
+          max-width: 880px;
           margin: 0 auto;
           padding: 10px 0;
         `}
