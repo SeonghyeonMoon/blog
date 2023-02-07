@@ -11,7 +11,6 @@ const SearchBar = ({ handleSearch }: SearchBarProps) => {
       type='text'
       css={css`
         display: block;
-        max-width: 800px;
         width: 100%;
         height: 40px;
         font-size: 16px;
