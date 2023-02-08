@@ -80,7 +80,7 @@ const Header = ({ toggleTheme }: HeaderProps) => {
           onClick={toggleTheme}
           css={css`
             padding: 5px 7px;
-            border-radius: 50%;
+            border-radius: 5px;
             border: none;
             background-color: ${theme.default};
             color: ${theme.font};
