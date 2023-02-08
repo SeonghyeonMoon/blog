@@ -1,9 +1,7 @@
 import Head from 'next/head';
 import { useState } from 'react';
 import { fetchPageList } from '@/apis/notion';
-import Description from '@/components/Description';
-import PostList from '@/components/PostList';
-import SearchBar from '@/components/SearchBar';
+import { Description, PostList, SearchBar } from '@/components/Index';
 import type { InferGetStaticPropsType } from 'next';
 
 const Index = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {

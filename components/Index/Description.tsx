@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
 import Button from '@/components/Button';
-import Moon from '@/components/Moon';
+import Moon from '@/components/Index/Moon';
 
 const Description = () => {
   return (
