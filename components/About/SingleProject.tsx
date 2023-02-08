@@ -57,6 +57,9 @@ const SingleProject = () => {
                   display: flex;
                   gap: 10px;
                   margin-bottom: 40px;
+                  @media (max-width: 900px) {
+                    flex-direction: column;
+                  }
                 `}
               >
                 <ProjectImage url='/strawberry-moon-calendar.png' description='달력' />
@@ -128,6 +131,9 @@ const SingleProject = () => {
                   display: flex;
                   gap: 10px;
                   margin-bottom: 40px;
+                  @media (max-width: 900px) {
+                    flex-direction: column;
+                  }
                 `}
               >
                 <ProjectImage url='/blog-main.png' description='메인 페이지(다크모드)' />

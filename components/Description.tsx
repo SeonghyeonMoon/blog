@@ -7,10 +7,20 @@ const Description = () => {
     <div
       css={css`
         display: flex;
+        align-items: center;
         justify-content: space-between;
+        @media (max-width: 900px) {
+          flex-direction: column-reverse;
+          margin-bottom: 20px;
+        }
       `}
     >
-      <div>
+      <div
+        css={css`
+          @media (max-width: 900px) {
+          align-self: flex-start;
+        `}
+      >
         <h2>안녕하세요.</h2>
         <h2
           css={css`

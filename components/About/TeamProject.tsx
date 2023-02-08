@@ -178,6 +178,9 @@ const TeamProject = () => {
                   display: flex;
                   gap: 10px;
                   margin-bottom: 40px;
+                  @media (max-width: 900px) {
+                    flex-direction: column;
+                  }
                 `}
               >
                 <ProjectImage url='/que-main.png' description='메인페이지' />

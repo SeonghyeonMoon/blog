@@ -11,6 +11,9 @@ const Info = () => {
           align-items: center;
           justify-content: space-between;
           gap: 20px;
+          @media (max-width: 900px) {
+            flex-direction: column-reverse;
+          }
         `}
       >
         <div>
@@ -40,6 +43,9 @@ const Info = () => {
         <div
           css={css`
             width: 320px;
+            @media (max-width: 900px) {
+              display: none;
+            }
           `}
         >
           <Image
@@ -90,20 +96,6 @@ const Info = () => {
               <a href='https://blog-sunghyeonmoon.vercel.app' target='_blank' rel='noreferrer'>
                 https://blog-sunghyeonmoon.vercel.app
               </a>
-            </td>
-          </tr>
-          <tr>
-            <th>소개</th>
-            <td>
-              안녕하세요. 프론트엔드 개발자 문성현입니다.
-              <br />
-              우연히 접한 개발에서 다른 분야에서 느껴보지 못했던 몰입과 즐거움을 느껴 관심을 가지게 되었니다.
-              <br />
-              주로 타입스크립트와 리액트를 기반으로 한 클라이언트 개발을 하고 있습니다.
-              <br />
-              다양한 것을 고려해서 문제를 유연하게 해결할 수 있는 개발자가 되고자 합니다.
-              <br />
-              많은 사람들의 삶에 변화를 줄 수 있는 서비스를 만들고 싶습니다.
             </td>
           </tr>
         </tbody>
