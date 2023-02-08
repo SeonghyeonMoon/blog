@@ -15,7 +15,7 @@ const Header = ({ toggleTheme }: HeaderProps) => {
       css={css`
         position: sticky;
         top: 0;
-        background-color: ${theme.background};
+        backdrop-filter: blur(4px);
         z-index: 10;
         transition: background-color 0.25s linear;
       `}
