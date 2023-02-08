@@ -55,7 +55,9 @@ export const getStaticProps = async ({ params }: GetStaticPropsContext) => {
           title: result.ogTitle || result.twitterTitle || '',
           description: result.ogDescription || result.twitterDescription || '',
           image: (typeof result.ogImage === 'object' && !Array.isArray(result.ogImage) && result.ogImage.url) || '',
-          favicon: 'https://' + result.requestUrl.split('/').slice(2, 3).join('') + result.favicon,
+          favicon: result.favicon.startsWith('https://')
+            ? result.favicon
+            : 'https://' + result.requestUrl.split('/').slice(2, 3).join('') + result.favicon,
         },
       };
     }),
