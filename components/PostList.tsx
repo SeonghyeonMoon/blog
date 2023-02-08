@@ -36,7 +36,7 @@ const PostList = ({ postList }: PostListProps) => {
               whileInView={{ y: 0, opacity: 1 }}
               css={css`
                 list-style: none;
-                padding: 10px;
+                padding: 10px 0;
                 border-bottom: 1px solid ${theme.hr};
 
                 &:hover {
