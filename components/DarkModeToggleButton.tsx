@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 
 const DarkModeToggleButton = styled.button`
+  z-index: 10;
   background-color: ${({ theme }) => theme.default};
   border: ${({ theme }) => `1px solid ${theme.hr}`};
   position: fixed;
