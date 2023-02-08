@@ -1,4 +1,5 @@
 import { css, useTheme } from '@emotion/react';
+import Image from 'next/image';
 
 type BookmarkProps = {
   url: string;
@@ -15,6 +16,7 @@ const Bookmark = ({ url, title, description, favicon, image }: BookmarkProps) =>
       href={url}
       css={css`
         display: flex;
+        width: 100%;
         border: 1px solid ${theme.gray};
         height: 100px;
         justify-content: space-between;
@@ -24,6 +26,7 @@ const Bookmark = ({ url, title, description, favicon, image }: BookmarkProps) =>
     >
       <div
         css={css`
+          width: 100%;
           flex: 1;
           padding: 12px 14px;
         `}
@@ -32,6 +35,9 @@ const Bookmark = ({ url, title, description, favicon, image }: BookmarkProps) =>
           css={css`
             margin-top: 0;
             font-size: 14px;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
           `}
         >
           {title}
@@ -47,19 +53,27 @@ const Bookmark = ({ url, title, description, favicon, image }: BookmarkProps) =>
           {description}
         </p>
 
-        <p
+        <div
           css={css`
-            font-size: 12px;
             display: flex;
             align-items: center;
             gap: 6px;
           `}
         >
-          <img src={favicon} alt={'favicon'} width={16} height={16} />
-          {url}
-        </p>
+          <Image src={favicon} alt={'favicon'} width={16} height={16} />
+          <p
+            css={css`
+              font-size: 12px;
+              text-overflow: ellipsis;
+              overflow: hidden;
+              white-space: nowrap;
+            `}
+          >
+            {url}
+          </p>
+        </div>
       </div>
-      <img
+      <Image
         src={image as string}
         alt={'bookmark'}
         width={200}
@@ -67,6 +81,9 @@ const Bookmark = ({ url, title, description, favicon, image }: BookmarkProps) =>
         css={css`
           border-top-right-radius: 5px;
           border-bottom-right-radius: 5px;
+          @media (max-width: 900px) {
+            display: none;
+          }
         `}
       />
     </a>
