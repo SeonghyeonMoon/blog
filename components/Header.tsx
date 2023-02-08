@@ -29,6 +29,9 @@ const Header = ({ toggleTheme }: HeaderProps) => {
           max-width: 880px;
           margin: 0 auto;
           padding: 10px 0;
+          @media (max-width: 900px) {
+            padding: 10px 20px;
+          }
         `}
       >
         <Link href='/'>
