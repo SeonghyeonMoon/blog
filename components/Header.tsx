@@ -2,7 +2,6 @@ import { css, useTheme } from '@emotion/react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import Button from './Button';
 
 type HeaderProps = {
   toggleTheme: () => void;
@@ -77,9 +76,27 @@ const Header = ({ toggleTheme }: HeaderProps) => {
             <Link href='/about'>About</Link>
           </li>
         </ul>
-        <Button onClick={toggleTheme}>
+        <button
+          onClick={toggleTheme}
+          css={css`
+            padding: 5px 7px;
+            border-radius: 50%;
+            border: none;
+            background-color: ${theme.default};
+            color: ${theme.font};
+            transition: all 0.25s linear;
+
+            &:hover {
+              filter: brightness(0.9);
+              cursor: pointer;
+            }
+            &:active {
+              filter: brightness(0.8);
+            }
+          `}
+        >
           <Image src='/moon.png' alt='moon' width={15} height={15} />
-        </Button>
+        </button>
       </div>
     </header>
   );
