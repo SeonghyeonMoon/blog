@@ -68,6 +68,7 @@ const GlobalStyles = () => {
         }
 
         table {
+          margin-bottom: 20px;
           width: 100%;
           border: ${theme.gray} solid 1px;
           border-radius: 5px;
@@ -80,12 +81,13 @@ const GlobalStyles = () => {
             transition: all 0.25s linear;
             vertical-align: middle;
           }
+
           td {
             padding: 5px 10px;
             border: ${theme.gray} solid 1px;
             transition: all 0.25s linear;
             line-height: 1.5;
-            vertical-align: bottom;
+            vertical-align: middle;
 
             a {
               text-decoration: underline;
