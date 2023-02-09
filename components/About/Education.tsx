@@ -1,40 +1,28 @@
 import { css } from '@emotion/react';
+import TableTitle from '@/components/About/TableTitle';
 
 const Education = () => {
   return (
     <section>
-      <h2
-        css={css`
-          margin-bottom: 10px;
-          text-align: left;
-          font-size: 20px;
-        `}
-      >
-        교육
-      </h2>
+      <TableTitle>교육</TableTitle>
       <table
         css={css`
-          margin-bottom: 20px;
           th {
             text-align: left;
           }
-          tr {
-            td:nth-of-type(1) {
-              width: 40%;
-            }
-            td:nth-of-type(2) {
-              width: 40%;
-            }
+
+          @media (max-width: 506px) {
+            th:nth-of-type(3),
             td:nth-of-type(3) {
-              width: 20%;
+              display: none;
             }
           }
         `}
       >
         <thead>
           <tr>
-            <th>교육 기관</th>
-            <th>교육 과정</th>
+            <th>기관명</th>
+            <th>과정명</th>
             <th>기간</th>
           </tr>
         </thead>
