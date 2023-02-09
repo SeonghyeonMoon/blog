@@ -1,5 +1,7 @@
 import { css } from '@emotion/react';
 import Image from 'next/image';
+import NewTabLink from '@/components/About/NewTabLink';
+import TableTitle from '@/components/About/TableTitle';
 
 const Info = () => {
   return (
@@ -60,15 +62,7 @@ const Info = () => {
           />
         </div>
       </div>
-      <h2
-        css={css`
-          margin-bottom: 10px;
-          text-align: left;
-          font-size: 20px;
-        `}
-      >
-        소개
-      </h2>
+      <TableTitle>소개</TableTitle>
       <table>
         <tbody>
           <tr>
@@ -86,17 +80,13 @@ const Info = () => {
           <tr>
             <th>깃허브</th>
             <td>
-              <a href='https://github.com/SunghyeonMoon' target='_blank' rel='noreferrer'>
-                https://github.com/SunghyeonMoon
-              </a>
+              <NewTabLink href='https://github.com/SunghyeonMoon' />
             </td>
           </tr>
           <tr>
             <th>블로그</th>
             <td>
-              <a href='https://blog-sunghyeonmoon.vercel.app' target='_blank' rel='noreferrer'>
-                https://blog-sunghyeonmoon.vercel.app
-              </a>
+              <NewTabLink href='https://blog-sunghyeonmoon.vercel.app' />
             </td>
           </tr>
         </tbody>
