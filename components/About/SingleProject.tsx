@@ -1,5 +1,7 @@
 import { css } from '@emotion/react';
+import NewTabLink from '@/components/About/NewTabLink';
 import ProjectImage from '@/components/About/ProjectImage';
+import TableTitle from '@/components/About/TableTitle';
 
 const SingleProject = () => {
   return (
@@ -38,9 +40,7 @@ const SingleProject = () => {
           <tr>
             <th>깃허브</th>
             <td>
-              <a href='https://github.com/SunghyeonMoon/strawberry-moon' target='_blank' rel='noreferrer'>
-                https://github.com/SunghyeonMoon/strawberry-moon
-              </a>
+              <NewTabLink href='https://github.com/SunghyeonMoon/strawberry-moon' />
             </td>
           </tr>
           <tr>
@@ -106,17 +106,13 @@ const SingleProject = () => {
           <tr>
             <th>깃허브</th>
             <td>
-              <a href='https://github.com/SunghyeonMoon/blog' target='_blank' rel='noreferrer'>
-                https://github.com/SunghyeonMoon/blog
-              </a>
+              <NewTabLink href='https://github.com/SunghyeonMoon/blog' />
             </td>
           </tr>
           <tr>
             <th>배포주소</th>
             <td>
-              <a href='https://blog-sunghyeonmoon.vercel.app' target='_blank' rel='noreferrer'>
-                https://blog-sunghyeonmoon.vercel.app
-              </a>
+              <NewTabLink href='https://blog-sunghyeonmoon.vercel.app' />
             </td>
           </tr>
           <tr>

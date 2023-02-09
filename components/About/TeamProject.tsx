@@ -1,4 +1,5 @@
 import { css } from '@emotion/react';
+import NewTabLink from '@/components/About/NewTabLink';
 import ProjectImage from '@/components/About/ProjectImage';
 
 const TeamProject = () => {
@@ -41,17 +42,13 @@ const TeamProject = () => {
           <tr>
             <th>깃허브</th>
             <td>
-              <a href='https://github.com/boostcampwm-2022/web17-waglewagle' target='_blank' rel='noreferrer'>
-                https://github.com/boostcampwm-2022/web17-waglewagle
-              </a>
+              <NewTabLink href='https://github.com/boostcampwm-2022/web17-waglewagle' />
             </td>
           </tr>
           <tr>
             <th>배포주소</th>
             <td>
-              <a href='https://www.waglewagle.link' target='_blank' rel='noreferrer'>
-                https://www.waglewagle.link
-              </a>
+              <NewTabLink href='https://www.waglewagle.link' />
             </td>
           </tr>
           <tr>
@@ -149,17 +146,13 @@ const TeamProject = () => {
           <tr>
             <th>깃허브</th>
             <td>
-              <a href='https://github.com/Hanghae99-5-Team1' target='_blank' rel='noreferrer'>
-                https://github.com/Hanghae99-5-Team1
-              </a>
+              <NewTabLink href='https://github.com/Hanghae99-5-Team1' />
             </td>
           </tr>
           <tr>
             <th>배포주소</th>
             <td>
-              <a href='https://everyque.com' target='_blank' rel='noreferrer'>
-                https://everyque.com
-              </a>
+              <NewTabLink href='https://everyque.com' />
             </td>
           </tr>
           <tr>
