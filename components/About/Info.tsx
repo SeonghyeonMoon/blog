@@ -10,7 +10,8 @@ const Info = () => {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          gap: 20px;
+          gap: 10px;
+
           @media (max-width: 900px) {
             flex-direction: column-reverse;
           }
