@@ -13,7 +13,7 @@ const Info = () => {
           gap: 10px;
 
           @media (max-width: 900px) {
-            flex-direction: column-reverse;
+            align-items: flex-start;
           }
         `}
       >
