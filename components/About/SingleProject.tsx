@@ -6,18 +6,17 @@ import TableTitle from '@/components/About/TableTitle';
 const SingleProject = () => {
   return (
     <section>
-      <h2
-        css={css`
-          margin-bottom: 10px;
-          text-align: left;
-          font-size: 20px;
-        `}
-      >
-        개인 프로젝트
-      </h2>
+      <TableTitle>개인 프로젝트</TableTitle>
       <table
         css={css`
-          margin-bottom: 20px;
+          @media (max-width: 497px) {
+            th,
+            td {
+              display: block;
+              width: 100%;
+              text-align: left;
+            }
+          }
         `}
       >
         <tbody>
@@ -85,7 +84,19 @@ const SingleProject = () => {
           </tr>
         </tbody>
       </table>
-      <table>
+      <table
+        css={css`
+          margin-bottom: 20px;
+          @media (max-width: 497px) {
+            th,
+            td {
+              display: block;
+              width: 100%;
+              text-align: left;
+            }
+          }
+        `}
+      >
         <tbody>
           <tr>
             <th>프로젝트 명</th>

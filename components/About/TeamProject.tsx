@@ -17,6 +17,14 @@ const TeamProject = () => {
       <table
         css={css`
           margin-bottom: 20px;
+          @media (max-width: 497px) {
+            th,
+            td {
+              display: block;
+              width: 100%;
+              text-align: left;
+            }
+          }
         `}
       >
         <tbody>
@@ -125,7 +133,19 @@ const TeamProject = () => {
           </tr>
         </tbody>
       </table>
-      <table>
+      <table
+        css={css`
+          margin-bottom: 20px;
+          @media (max-width: 497px) {
+            th,
+            td {
+              display: block;
+              width: 100%;
+              text-align: left;
+            }
+          }
+        `}
+      >
         <tbody>
           <tr>
             <th>프로젝트 명</th>

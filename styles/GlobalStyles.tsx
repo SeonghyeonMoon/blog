@@ -78,14 +78,14 @@ const GlobalStyles = () => {
             border: ${theme.gray} solid 1px;
             background-color: ${theme.default};
             width: 110px;
-            transition: all 0.25s linear;
+            transition: border 0.25s linear, background-color 0.25s linear;
             vertical-align: middle;
           }
 
           td {
             padding: 5px 10px;
             border: ${theme.gray} solid 1px;
-            transition: all 0.25s linear;
+            transition: border 0.25s linear;
             line-height: 1.5;
             vertical-align: middle;
 
