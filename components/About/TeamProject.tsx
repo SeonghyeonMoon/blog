@@ -1,32 +1,14 @@
 import { css } from '@emotion/react';
 import NewTabLink from '@/components/About/NewTabLink';
 import ProjectImage from '@/components/About/ProjectImage';
+import { horizontalTableStyle, projectImagesStyle } from '@/components/About/style';
+import TableTitle from '@/components/About/TableTitle';
 
 const TeamProject = () => {
   return (
     <section>
-      <h2
-        css={css`
-          margin-bottom: 10px;
-          text-align: left;
-          font-size: 20px;
-        `}
-      >
-        팀 프로젝트
-      </h2>
-      <table
-        css={css`
-          margin-bottom: 20px;
-          @media (max-width: 497px) {
-            th,
-            td {
-              display: block;
-              width: 100%;
-              text-align: left;
-            }
-          }
-        `}
-      >
+      <TableTitle>팀 프로젝트</TableTitle>
+      <table css={horizontalTableStyle}>
         <tbody>
           <tr>
             <th>프로젝트 명</th>
@@ -133,19 +115,7 @@ const TeamProject = () => {
           </tr>
         </tbody>
       </table>
-      <table
-        css={css`
-          margin-bottom: 20px;
-          @media (max-width: 497px) {
-            th,
-            td {
-              display: block;
-              width: 100%;
-              text-align: left;
-            }
-          }
-        `}
-      >
+      <table css={horizontalTableStyle}>
         <tbody>
           <tr>
             <th>프로젝트 명</th>
@@ -186,16 +156,7 @@ const TeamProject = () => {
           <tr>
             <th>기능</th>
             <td>
-              <div
-                css={css`
-                  display: flex;
-                  gap: 10px;
-                  margin-bottom: 40px;
-                  @media (max-width: 900px) {
-                    flex-direction: column;
-                  }
-                `}
-              >
+              <div css={projectImagesStyle}>
                 <ProjectImage url='/que-main.png' description='메인페이지' />
                 <ProjectImage url='/que-home.png' description='강의 게시판' />
               </div>

@@ -1,24 +1,13 @@
-import { css } from '@emotion/react';
 import NewTabLink from '@/components/About/NewTabLink';
 import ProjectImage from '@/components/About/ProjectImage';
+import { horizontalTableStyle, projectImagesStyle } from '@/components/About/style';
 import TableTitle from '@/components/About/TableTitle';
 
 const SingleProject = () => {
   return (
     <section>
       <TableTitle>개인 프로젝트</TableTitle>
-      <table
-        css={css`
-          @media (max-width: 497px) {
-            th,
-            td {
-              display: block;
-              width: 100%;
-              text-align: left;
-            }
-          }
-        `}
-      >
+      <table css={horizontalTableStyle}>
         <tbody>
           <tr>
             <th>프로젝트 명</th>
@@ -51,16 +40,7 @@ const SingleProject = () => {
           <tr>
             <th>기능 및 역할</th>
             <td>
-              <div
-                css={css`
-                  display: flex;
-                  gap: 10px;
-                  margin-bottom: 40px;
-                  @media (max-width: 900px) {
-                    flex-direction: column;
-                  }
-                `}
-              >
+              <div css={projectImagesStyle}>
                 <ProjectImage url='/strawberry-moon-calendar.png' description='달력' />
                 <ProjectImage url='/strawberry-moon-form.png' description='입력창' />
               </div>
@@ -84,19 +64,7 @@ const SingleProject = () => {
           </tr>
         </tbody>
       </table>
-      <table
-        css={css`
-          margin-bottom: 20px;
-          @media (max-width: 497px) {
-            th,
-            td {
-              display: block;
-              width: 100%;
-              text-align: left;
-            }
-          }
-        `}
-      >
+      <table css={horizontalTableStyle}>
         <tbody>
           <tr>
             <th>프로젝트 명</th>
@@ -133,16 +101,7 @@ const SingleProject = () => {
           <tr>
             <th>기능 및 역할</th>
             <td>
-              <div
-                css={css`
-                  display: flex;
-                  gap: 10px;
-                  margin-bottom: 40px;
-                  @media (max-width: 900px) {
-                    flex-direction: column;
-                  }
-                `}
-              >
+              <div css={projectImagesStyle}>
                 <ProjectImage url='/blog-main.png' description='메인 페이지(다크모드)' />
                 <ProjectImage url='/blog-about.png' description='소개 페이지(라이트모드)' />
               </div>
