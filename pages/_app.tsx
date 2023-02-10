@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import { useState } from 'react';
 import DarkModeToggleButton from '@/components/DarkModeToggleButton';
 import Footer from '@/components/Footer';
+import GoogleAnalystics from '@/components/GoogleAnalystics';
 import Header from '@/components/Header';
 import JenniferFront from '@/components/JenniferFront';
 import GlobalStyles from '@/styles/GlobalStyles';
@@ -41,6 +42,7 @@ const App = ({ Component, pageProps }: AppProps) => {
 
   return (
     <>
+      <GoogleAnalystics />
       <JenniferFront />
       <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
         <GlobalStyles />
