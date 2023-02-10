@@ -6,6 +6,7 @@ import { useState } from 'react';
 import DarkModeToggleButton from '@/components/DarkModeToggleButton';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
+import JenniferFront from '@/components/JenniferFront';
 import GlobalStyles from '@/styles/GlobalStyles';
 import { darkTheme, lightTheme } from '@/styles/theme';
 import type { AppProps } from 'next/app';
@@ -40,6 +41,7 @@ const App = ({ Component, pageProps }: AppProps) => {
 
   return (
     <>
+      <JenniferFront />
       <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
         <GlobalStyles />
         <Header toggleTheme={toggleTheme} />
