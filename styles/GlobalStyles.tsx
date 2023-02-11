@@ -59,14 +59,6 @@ const GlobalStyles = () => {
           transition: all 0.25s linear;
         }
 
-        blockquote {
-          color: ${theme.font};
-          line-height: 2;
-          border-left: 5px solid ${theme.font};
-          padding-left: 15px;
-          transition: all 0.25s linear;
-        }
-
         table {
           margin-bottom: 20px;
           width: 100%;

@@ -96,7 +96,15 @@ const Block = ({ block }: BlockProps) => {
       );
     case 'quote':
       return (
-        <blockquote>
+        <blockquote
+          css={css`
+            color: ${theme.font};
+            line-height: 2;
+            border-left: 5px solid ${theme.font};
+            padding-left: 15px;
+            transition: all 0.25s linear;
+          `}
+        >
           <Text textList={block[type].rich_text} />
         </blockquote>
       );
