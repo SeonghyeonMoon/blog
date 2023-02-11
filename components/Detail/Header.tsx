@@ -18,13 +18,13 @@ const Header = ({ title, tags }: HeaderProps) => {
       `}
     >
       <TagList tags={tags} />
-      <h2
+      <h1
         css={css`
           margin-bottom: 10px;
         `}
       >
         {title}
-      </h2>
+      </h1>
     </header>
   );
 };
