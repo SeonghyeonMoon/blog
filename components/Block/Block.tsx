@@ -16,10 +16,15 @@ const Block = ({ block }: BlockProps) => {
   switch (type) {
     case 'paragraph':
       return (
-        <p>
+        <p
+          css={css`
+            line-height: 1.5;
+          `}
+        >
           <Text textList={block[type].rich_text} />
         </p>
       );
+
     case 'heading_1':
       return (
         <h1
@@ -83,6 +88,7 @@ const Block = ({ block }: BlockProps) => {
           ) : null}
         </li>
       );
+
     case 'numbered_list_item':
       return (
         <li
@@ -105,12 +111,14 @@ const Block = ({ block }: BlockProps) => {
           ) : null}
         </li>
       );
+
     case 'code':
       return (
         <SyntaxHighlighter language='javascript' style={dracula}>
           {block[type].rich_text.reduce((acc: string, cur: RichTextItemResponse) => acc + cur.plain_text, '')}
         </SyntaxHighlighter>
       );
+
     case 'quote':
       return (
         <blockquote
@@ -125,9 +133,11 @@ const Block = ({ block }: BlockProps) => {
           <Text textList={block[type].rich_text} />
         </blockquote>
       );
+
     case 'bookmark':
       // @ts-ignore
       return <Bookmark {...block[type]} />;
+
     case 'image':
       return (
         <div>
@@ -153,6 +163,7 @@ const Block = ({ block }: BlockProps) => {
           ) : null}
         </div>
       );
+
     default:
       return null;
   }
