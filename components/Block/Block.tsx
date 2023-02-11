@@ -19,6 +19,7 @@ const Block = ({ block }: BlockProps) => {
         <p
           css={css`
             line-height: 1.5;
+            margin: 8px 0;
           `}
         >
           <Text textList={block[type].rich_text} />
@@ -30,6 +31,7 @@ const Block = ({ block }: BlockProps) => {
         <h1
           css={css`
             margin-top: 32px;
+            margin-bottom: 16px;
           `}
         >
           <Text textList={block[type].rich_text} />
@@ -38,13 +40,16 @@ const Block = ({ block }: BlockProps) => {
 
     case 'heading_2':
       return (
-        <h2
-          css={css`
-            margin-top: 24px;
-          `}
-        >
-          <Text textList={block[type].rich_text} />
-        </h2>
+        <>
+          <h2
+            css={css`
+              margin-top: 24px;
+            `}
+          >
+            <Text textList={block[type].rich_text} />
+          </h2>
+          <hr />
+        </>
       );
 
     case 'heading_3':
@@ -52,6 +57,7 @@ const Block = ({ block }: BlockProps) => {
         <h3
           css={css`
             margin-top: 16px;
+            margin-bottom: 16px;
           `}
         >
           <Text textList={block[type].rich_text} />
@@ -62,7 +68,7 @@ const Block = ({ block }: BlockProps) => {
       return (
         <li
           css={css`
-            padding: 3px 2px;
+            margin: 8px 0;
             font-size: 16px;
             font-weight: 600;
             line-height: 1.5;
@@ -93,7 +99,7 @@ const Block = ({ block }: BlockProps) => {
       return (
         <li
           css={css`
-            padding: 3px 2px;
+            margin: 8px 0;
             font-size: 16px;
             font-weight: 600;
             line-height: 1.5;
