@@ -4,20 +4,23 @@ const notion = new Client({ auth: process.env.NOTION_TOKEN });
 
 export const fetchPageList = async (databaseId: string) => {
   const { results } = await notion.databases.query({ database_id: databaseId });
-  return results.filter(isFullPage).map((page) => ({
-    id: page.id,
-    title: page.properties.Name.type === 'title' ? page.properties.Name.title[0].plain_text : '',
-    tags: page.properties.Tags.type === 'multi_select' ? page.properties.Tags.multi_select : [],
-  }));
+  return results
+    .filter(isFullPage)
+    .map((page) => ({
+      id: page.id,
+      title: page.properties.name.type === 'title' ? page.properties.name.title[0].plain_text : '',
+      tags: page.properties.tags.type === 'multi_select' ? page.properties.tags.multi_select : [],
+      order: page.properties['\border'].type === 'number' ? page.properties['\border'].number : 0,
+    }))
+    .sort((a, b) => (a.order ?? Infinity) - (b.order ?? Infinity));
 };
 
 export const fetchPage = async (pageId: string) => {
   const page = await notion.pages.retrieve({ page_id: pageId });
   if (!isFullPage(page)) return;
   return {
-    title: page.properties.Name.type === 'title' ? page.properties.Name.title[0].plain_text : '',
-    cover: page.cover?.type === 'external' ? page.cover.external.url : '',
-    tags: page.properties.Tags.type === 'multi_select' ? page.properties.Tags.multi_select : [],
+    title: page.properties.name.type === 'title' ? page.properties.name.title[0].plain_text : '',
+    tags: page.properties.tags.type === 'multi_select' ? page.properties.tags.multi_select : [],
   };
 };
 
