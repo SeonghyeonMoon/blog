@@ -1,4 +1,5 @@
 {
+  "plugins": ["unused-imports"],
   "extends": "next/core-web-vitals",
   "settings": {
     "import/resolver": {
@@ -6,6 +7,7 @@
     }
   },
   "rules": {
+    "unused-imports/no-unused-imports": "error",
     "import/order": [
       "error",
       {
