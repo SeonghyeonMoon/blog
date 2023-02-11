@@ -47,7 +47,7 @@ const TeamProject = () => {
           </tr>
           <tr>
             <th>사용 기술</th>
-            <td>typescript, next.js, react-query, jest, scss</td>
+            <td>Typescript, Next.js, React Query, Jest, Sass</td>
           </tr>
           <tr>
             <th>기능</th>
@@ -146,7 +146,8 @@ const TeamProject = () => {
           </tr>
           <tr>
             <th>사용 기술</th>
-            <td>typescript, react.js, redux, styled-components, socket.io</td>
+
+            <td>React, Redux, Styled Components, Socket.io</td>
           </tr>
           <tr>
             <th>기능</th>

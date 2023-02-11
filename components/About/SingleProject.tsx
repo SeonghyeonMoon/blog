@@ -32,9 +32,7 @@ const SingleProject = () => {
           </tr>
           <tr>
             <th>사용 기술</th>
-            <td>
-              typescript, next.js, planet-scale, prisma, tailwind-css, react-query, react-spinners, react-toastify
-            </td>
+            <td>TypeScript, Next.js, React Query, Tailwind CSS, Chart.js, PlanetScale, Prisma</td>
           </tr>
           <tr>
             <th>기능 및 역할</th>
@@ -90,7 +88,7 @@ const SingleProject = () => {
           </tr>
           <tr>
             <th>사용 기술</th>
-            <td>typescript, next.js, react-query, jest, emotion, notion API, three.js, framer-motion</td>
+            <td>TypeScript, Next.js, React Query, Emotion, Notion, Three.js, Framer Motion</td>
           </tr>
           <tr>
             <th>기능 및 역할</th>
