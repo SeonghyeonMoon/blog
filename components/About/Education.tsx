@@ -39,7 +39,7 @@ const Education = () => {
           </tr>
           <tr>
             <td>한양대학교</td>
-            <td>원자력 공학 학사</td>
+            <td>원자력공학 학사</td>
             <td>2014.03~2020.02</td>
           </tr>
         </tbody>
