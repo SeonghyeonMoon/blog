@@ -6,8 +6,10 @@ type TagType = {
   color: keyof Theme;
 };
 
-export type PostType = {
+type PostType = {
   id: string;
   title: string;
   tags: TagType[];
 };
+
+export type { TagType, PostType };
