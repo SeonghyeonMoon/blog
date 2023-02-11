@@ -6,11 +6,11 @@ type SearchBarProps = {
 
 const SearchBar = ({ handleSearch }: SearchBarProps) => {
   const theme = useTheme();
+
   return (
     <input
       type='text'
       css={css`
-        display: block;
         width: 100%;
         height: 40px;
         font-size: 16px;
@@ -27,7 +27,7 @@ const SearchBar = ({ handleSearch }: SearchBarProps) => {
           outline: none;
         }
       `}
-      placeholder={'Search'}
+      placeholder='Search Posts...'
       onChange={(e) => handleSearch(e.target.value)}
     />
   );
