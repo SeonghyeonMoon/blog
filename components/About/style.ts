@@ -16,7 +16,7 @@ const projectImagesStyle = css`
   gap: 10px;
   margin-bottom: 40px;
 
-  @media (max-width: 900px) {
+  @media (max-width: 497px) {
     flex-direction: column;
   }
 `;

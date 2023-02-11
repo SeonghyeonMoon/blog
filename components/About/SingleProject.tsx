@@ -1,6 +1,5 @@
 import NewTabLink from '@/components/About/NewTabLink';
-import ProjectImage from '@/components/About/ProjectImage';
-import { horizontalTableStyle, projectImagesStyle } from '@/components/About/style';
+import { horizontalTableStyle } from '@/components/About/style';
 import TableTitle from '@/components/About/TableTitle';
 
 const SingleProject = () => {
@@ -40,11 +39,6 @@ const SingleProject = () => {
           <tr>
             <th>기능 및 역할</th>
             <td>
-              <div css={projectImagesStyle}>
-                <ProjectImage url='/strawberry-moon-calendar.png' description='달력' />
-                <ProjectImage url='/strawberry-moon-form.png' description='입력창' />
-              </div>
-              <hr />
               <ul>
                 <li>현재 날짜 표시 기능과 날짜 선택 기능이 있는 달력 컴포넌트 구현</li>
                 <li>Chart.js를 통한 월, 품목 별 통계량 표시 기능 구현</li>
@@ -101,11 +95,6 @@ const SingleProject = () => {
           <tr>
             <th>기능 및 역할</th>
             <td>
-              <div css={projectImagesStyle}>
-                <ProjectImage url='/blog-main.png' description='메인 페이지(다크모드)' />
-                <ProjectImage url='/blog-about.png' description='소개 페이지(라이트모드)' />
-              </div>
-              <hr />
               <ul>
                 <li>Notion API를 통해서 포스팅 목록 및 상세 페이지 블록 별 불러오기 구현 </li>
                 <li>SSG를 통한 포스트 별 정적 페이지 생성으로 로드 시간 최소화</li>

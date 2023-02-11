@@ -52,20 +52,15 @@ const TeamProject = () => {
           <tr>
             <th>기능</th>
             <td>
-              <div
-                css={css`
-                  margin-bottom: 10px;
-                `}
-              >
-                <ProjectImage url='/waglewagle-main.png' description='와글와글 메인페이지' />
-                <hr />
+              <div css={projectImagesStyle}>
+                <ProjectImage url='/wagle-intro.png' description='소개 페이지' />
+                <ProjectImage url='/wagle-main.png' description='메인 페이지' />
               </div>
+              <hr />
               <ul>
                 <li>물리 엔진을 통해 자발적으로 움직이는 시각화 데이터</li>
                 <li>검색 기능을 통해 이미 생성된 관심사 확인 및 중복 관심사 생성 방지</li>
-                <li>추가한 키워드에 대한 키워드 추천 기능</li>
                 <li>관심사 별 게시판을 통해 의사소통 기능</li>
-                <li>관심사와 게시글 등의 데이터의 실시간성 보장</li>
                 <li>OAuth를 통한 소셜 로그인 기능</li>
               </ul>
             </td>
@@ -156,12 +151,17 @@ const TeamProject = () => {
           <tr>
             <th>기능</th>
             <td>
-              <div css={projectImagesStyle}>
-                <ProjectImage url='/que-main.png' description='메인페이지' />
-                <ProjectImage url='/que-home.png' description='강의 게시판' />
+              <div
+                css={[
+                  projectImagesStyle,
+                  css`
+                    width: 100%;
+                  `,
+                ]}
+              >
+                <ProjectImage url='/que-main.png' description='메인 페이지' />
+                <ProjectImage url='/que-class.png' description='강의실' />
               </div>
-              <hr />
-              <ProjectImage url='/que-class.png' description='강의실' />
               <hr />
               <ul>
                 <li>실시간 동영상 스트리밍 서비스 기능</li>
@@ -172,7 +172,7 @@ const TeamProject = () => {
             </td>
           </tr>
           <tr>
-            <th>소개</th>
+            <th>역할</th>
             <td>
               <ul>
                 <li>프로젝트 리더로 기획, 디자인, 개발, 배포 등을 포함한 풀 사이클 프로젝트 리드</li>
