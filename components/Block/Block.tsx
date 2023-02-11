@@ -22,22 +22,37 @@ const Block = ({ block }: BlockProps) => {
       );
     case 'heading_1':
       return (
-        <h1>
+        <h1
+          css={css`
+            margin-top: 32px;
+          `}
+        >
           <Text textList={block[type].rich_text} />
         </h1>
       );
+
     case 'heading_2':
       return (
-        <h2>
+        <h2
+          css={css`
+            margin-top: 24px;
+          `}
+        >
           <Text textList={block[type].rich_text} />
         </h2>
       );
+
     case 'heading_3':
       return (
-        <h3>
+        <h3
+          css={css`
+            margin-top: 16px;
+          `}
+        >
           <Text textList={block[type].rich_text} />
         </h3>
       );
+
     case 'bulleted_list_item':
       return (
         <li
@@ -45,6 +60,7 @@ const Block = ({ block }: BlockProps) => {
             padding: 3px 2px;
             font-size: 16px;
             font-weight: 600;
+            line-height: 1.5;
             transition: all 0.25s linear;
           `}
         >
@@ -74,6 +90,7 @@ const Block = ({ block }: BlockProps) => {
             padding: 3px 2px;
             font-size: 16px;
             font-weight: 600;
+            line-height: 1.5;
             transition: all 0.25s linear;
           `}
         >

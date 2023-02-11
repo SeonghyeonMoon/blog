@@ -21,10 +21,16 @@ const Description = () => {
           align-self: flex-start;
         `}
       >
-        <h2>안녕하세요.</h2>
         <h2
           css={css`
-            margin-top: 0;
+            margin-bottom: 10px;
+          `}
+        >
+          안녕하세요.
+        </h2>
+        <h2
+          css={css`
+            margin-bottom: 10px;
           `}
         >
           프론트엔드 개발자 문성현입니다.
