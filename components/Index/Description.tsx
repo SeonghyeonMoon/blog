@@ -11,7 +11,7 @@ const Description = () => {
         justify-content: space-between;
         @media (max-width: 900px) {
           flex-direction: column-reverse;
-          margin-bottom: 20px;
+          margin-bottom: 10px;
         }
       `}
     >
@@ -21,20 +21,8 @@ const Description = () => {
           align-self: flex-start;
         `}
       >
-        <h2
-          css={css`
-            margin-bottom: 10px;
-          `}
-        >
-          안녕하세요.
-        </h2>
-        <h2
-          css={css`
-            margin-bottom: 10px;
-          `}
-        >
-          프론트엔드 개발자 문성현입니다.
-        </h2>
+        <h2>안녕하세요.</h2>
+        <h2>프론트엔드 개발자 문성현입니다.</h2>
         <p>학습하면서 느낀 점과 공부한 내용을 기록하고 공유하는 공간입니다.</p>
         <div
           css={css`

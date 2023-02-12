@@ -14,6 +14,7 @@ const GlobalStyles = () => {
 
         body {
           background: ${theme.background};
+          line-height: 1.5;
           color: ${theme.font};
           transition: background-color 0.25s linear, color 0.25s linear;
         }
@@ -56,7 +57,7 @@ const GlobalStyles = () => {
           border-radius: 5px;
 
           th {
-            padding: 10px;
+            padding: 5px 10px;
             border: ${theme.gray} solid 1px;
             background-color: ${theme.default};
             width: 110px;
@@ -68,7 +69,6 @@ const GlobalStyles = () => {
             padding: 5px 10px;
             border: ${theme.gray} solid 1px;
             transition: border 0.25s linear;
-            line-height: 1.5;
             vertical-align: middle;
 
             a {

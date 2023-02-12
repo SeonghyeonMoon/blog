@@ -5,7 +5,7 @@ const Footer = () => {
     <footer>
       <p
         css={css`
-          padding: 40px;
+          padding: 30px 0 40px;
           text-align: center;
         `}
       >

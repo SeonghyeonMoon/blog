@@ -18,7 +18,6 @@ const Block = ({ block }: BlockProps) => {
       return (
         <p
           css={css`
-            line-height: 1.5;
             margin: 8px 0;
           `}
         >
@@ -71,7 +70,6 @@ const Block = ({ block }: BlockProps) => {
             margin: 8px 0;
             font-size: 16px;
             font-weight: 600;
-            line-height: 1.5;
             transition: all 0.25s linear;
           `}
         >
@@ -102,7 +100,6 @@ const Block = ({ block }: BlockProps) => {
             margin: 8px 0;
             font-size: 16px;
             font-weight: 600;
-            line-height: 1.5;
             transition: all 0.25s linear;
           `}
         >
@@ -130,7 +127,6 @@ const Block = ({ block }: BlockProps) => {
         <blockquote
           css={css`
             color: ${theme.font};
-            line-height: 2;
             border-left: 5px solid ${theme.font};
             padding-left: 15px;
             transition: all 0.25s linear;
