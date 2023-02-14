@@ -68,7 +68,7 @@ const Header = ({ toggleTheme }: HeaderProps) => {
               }
             `}
           >
-            <Link href='/pages/about'>About</Link>
+            <Link href='/about'>About</Link>
           </li>
         </ul>
         <button
