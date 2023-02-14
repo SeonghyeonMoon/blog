@@ -1,8 +1,7 @@
 import { motion } from 'framer-motion';
 import Head from 'next/head';
 import { fetchBlocks, fetchPage, fetchPageList } from '@/apis/notion';
-import Block from '@/components/Block/Block';
-import Header from '@/components/Detail/Header';
+import { Block, Header } from '@/components/Detail';
 import type { GetStaticPropsContext, InferGetStaticPropsType } from 'next';
 
 const Detail = ({ page, blocks }: InferGetStaticPropsType<typeof getStaticProps>) => {

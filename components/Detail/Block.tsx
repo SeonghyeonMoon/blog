@@ -2,8 +2,8 @@ import { css, useTheme } from '@emotion/react';
 import Image from 'next/image';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { dracula } from 'react-syntax-highlighter/dist/cjs/styles/prism';
-import Text from '@/components/Block/Text';
 import Bookmark from './Bookmark';
+import Text from './Text';
 import type { BlockObjectResponse, RichTextItemResponse } from '@notionhq/client/build/src/api-endpoints';
 
 type BlockProps = {

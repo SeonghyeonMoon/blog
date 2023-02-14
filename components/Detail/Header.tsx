@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import TagList from '@/components/TagList';
+import TagList from '@/components/Common/TagList';
 import type { TagType } from '@/types';
 
 type HeaderProps = {

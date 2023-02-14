@@ -1,7 +1,7 @@
 import { css, useTheme } from '@emotion/react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import TagList from '@/components/TagList';
+import TagList from '@/components/Common/TagList';
 import type { PostType } from '@/types';
 
 type PostProps = PostType;
