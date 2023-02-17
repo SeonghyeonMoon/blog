@@ -1,10 +1,12 @@
-import { motion } from 'framer-motion';
 import Head from 'next/head';
 import { fetchBlocks, fetchPage, fetchPageList } from '@/apis/notion';
 import { Block, Header } from '@/components/Detail';
+import useFade from '@/hooks/useFade';
 import type { GetStaticPropsContext, InferGetStaticPropsType } from 'next';
 
 const Detail = ({ page, blocks }: InferGetStaticPropsType<typeof getStaticProps>) => {
+  useFade({ selector: 'main > *, main > ul > *' });
+
   if (!page || !blocks) {
     return null;
   }
@@ -16,13 +18,15 @@ const Detail = ({ page, blocks }: InferGetStaticPropsType<typeof getStaticProps>
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <Header title={page.title} tags={page.tags} />
-      <hr />
-      {blocks.map((block, index) => (
-        <motion.div initial={{ x: 50, opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} key={index}>
-          <Block block={block} />
-        </motion.div>
-      ))}
+      <main>
+        <Header title={page.title} tags={page.tags} />
+        <hr />
+        <ul>
+          {blocks.map((block, index) => (
+            <Block block={block} key={index} />
+          ))}
+        </ul>
+      </main>
       <hr />
     </>
   );

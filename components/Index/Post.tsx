@@ -1,5 +1,4 @@
 import { css, useTheme } from '@emotion/react';
-import { motion } from 'framer-motion';
 import Link from 'next/link';
 import TagList from '@/components/Common/TagList';
 import type { PostType } from '@/types';
@@ -11,9 +10,7 @@ const Post = ({ id, tags, title }: PostProps) => {
 
   return (
     <Link href={`/${id}`}>
-      <motion.li
-        initial={{ y: 50, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
+      <li
         css={css`
           list-style: none;
           padding: 10px 0;
@@ -38,7 +35,7 @@ const Post = ({ id, tags, title }: PostProps) => {
         >
           {title}
         </h2>
-      </motion.li>
+      </li>
     </Link>
   );
 };
