@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import { fetchBlocks, fetchPage, fetchPageList } from '@/apis/notion';
 import { Block, Header } from '@/components/Detail';
+import Navigation from '@/components/Detail/Navigation';
 import useFade from '@/hooks/useFade';
 import type { GetStaticPropsContext, InferGetStaticPropsType } from 'next';
 
@@ -28,6 +29,7 @@ const Detail = ({ page, blocks }: InferGetStaticPropsType<typeof getStaticProps>
         </ul>
       </main>
       <hr />
+      <Navigation blocks={blocks} />
     </>
   );
 };

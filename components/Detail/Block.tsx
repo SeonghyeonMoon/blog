@@ -12,6 +12,7 @@ type BlockProps = {
 
 const Block = ({ block }: BlockProps) => {
   const theme = useTheme();
+
   const { type } = block;
   switch (type) {
     case 'paragraph':
@@ -41,8 +42,10 @@ const Block = ({ block }: BlockProps) => {
       return (
         <>
           <h2
+            id={block[type].rich_text.map(({ plain_text }) => plain_text).join('')}
             css={css`
               margin-top: 24px;
+              scroll-margin: 10vh;
             `}
           >
             <Text textList={block[type].rich_text} />
@@ -54,9 +57,11 @@ const Block = ({ block }: BlockProps) => {
     case 'heading_3':
       return (
         <h3
+          id={block[type].rich_text.map(({ plain_text }) => plain_text).join('')}
           css={css`
             margin-top: 16px;
             margin-bottom: 16px;
+            scroll-margin: 10vh;
           `}
         >
           <Text textList={block[type].rich_text} />
@@ -78,6 +83,7 @@ const Block = ({ block }: BlockProps) => {
             <ul
               css={css`
                 list-style: disc;
+                padding-left: 30px;
 
                 ul {
                   list-style: circle;
