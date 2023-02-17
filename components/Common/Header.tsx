@@ -17,7 +17,6 @@ const Header = ({ toggleTheme }: HeaderProps) => {
         top: 0;
         backdrop-filter: blur(4px);
         z-index: 10;
-        padding: 20px 0;
         transition: background-color 0.25s linear;
       `}
     >
@@ -26,12 +25,9 @@ const Header = ({ toggleTheme }: HeaderProps) => {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          max-width: 880px;
+          max-width: 1330px;
           margin: 0 auto;
-
-          @media (max-width: 900px) {
-            padding: 10px 20px;
-          }
+          padding: 10px 20px;
         `}
       >
         <Link href='/'>

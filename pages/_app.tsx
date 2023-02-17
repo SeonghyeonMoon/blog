@@ -55,8 +55,7 @@ const App = ({ Component, pageProps }: AppProps) => {
             exit='out'
             css={css`
               margin: 0 auto;
-              max-width: 880px;
-              overflow: hidden;
+              max-width: 768px;
               @media (max-width: 900px) {
                 padding: 0 20px;
               }
