@@ -26,7 +26,7 @@ const Bookmark = ({ url, title, description, favicon, image }: BookmarkProps) =>
     >
       <div
         css={css`
-          width: 100%;
+          max-width: 70%;
           flex: 1;
           padding: 12px 14px;
         `}
@@ -73,19 +73,21 @@ const Bookmark = ({ url, title, description, favicon, image }: BookmarkProps) =>
           </p>
         </div>
       </div>
-      <Image
-        src={image as string}
-        alt={'bookmark'}
-        width={200}
-        height={98}
-        css={css`
-          border-top-right-radius: 5px;
-          border-bottom-right-radius: 5px;
-          @media (max-width: 900px) {
-            display: none;
-          }
-        `}
-      />
+      <div>
+        <Image
+          src={image as string}
+          alt={'bookmark'}
+          width={200}
+          height={98}
+          css={css`
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+            @media (max-width: 900px) {
+              display: none;
+            }
+          `}
+        />
+      </div>
     </a>
   );
 };
