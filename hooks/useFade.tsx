@@ -13,7 +13,7 @@ const UseFade = ({ selector }: UseFadeProps) => {
           target.style.opacity = entry.isIntersecting ? '1' : '0';
         });
       },
-      { rootMargin: '-15% 0% -10%' },
+      { rootMargin: '-10%' },
     );
 
     const contents = document.querySelectorAll(selector) as NodeListOf<HTMLElement>;
