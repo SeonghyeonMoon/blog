@@ -5,6 +5,8 @@ import Intro from '@/components/About/Intro';
 import useFade from '@/hooks/useFade';
 
 const About = () => {
+  useFade({ selector: 'section, th, td, h2, section > ul > li' });
+
   return (
     <>
       <Head>
