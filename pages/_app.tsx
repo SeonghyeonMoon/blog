@@ -1,9 +1,8 @@
 import { css, ThemeProvider } from '@emotion/react';
 import { AnimatePresence, motion } from 'framer-motion';
-import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
-import { DarkModeToggleButton, Footer, GoogleAnalystics, Header, JenniferFront } from '@/components/Common';
+import { Footer, GoogleAnalystics, Header, JenniferFront, PageUpButton } from '@/components/Common';
 import ProgressBar from '@/components/Common/ProgressBar';
 import GlobalStyles from '@/styles/GlobalStyles';
 import { darkTheme, lightTheme } from '@/styles/theme';
@@ -41,9 +40,7 @@ const App = ({ Component, pageProps }: AppProps) => {
       <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
         <GlobalStyles />
         <Header toggleTheme={toggleTheme} />
-        <DarkModeToggleButton onClick={toggleTheme}>
-          <Image src='/moon.png' alt='moon' width='30' height='30' />
-        </DarkModeToggleButton>
+        <PageUpButton />
         <AnimatePresence initial={true} mode='wait'>
           <motion.main
             key={asPath}

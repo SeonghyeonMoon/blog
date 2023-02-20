@@ -10,14 +10,15 @@ const ProgressBar = () => {
     <motion.div
       style={{ scaleX }}
       css={css`
-        height: 5px;
-        background-color: ${theme.default};
         position: fixed;
         top: 0;
         left: 0;
         right: 0;
+        height: 5px;
+        background-color: ${theme.font};
         z-index: 100;
         transform-origin: 0;
+        transition: background-color 0.2s linear;
       `}
     />
   );
