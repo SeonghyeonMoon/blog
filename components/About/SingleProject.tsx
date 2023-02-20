@@ -96,8 +96,10 @@ const SingleProject = () => {
               <ul>
                 <li>Notion API를 통해서 포스팅 목록 및 상세 페이지 블록 별 불러오기 구현 </li>
                 <li>SSG를 통한 포스트 별 정적 페이지 생성으로 로드 시간 최소화</li>
-                <li>Three.js를 통한 3D 애니메이션 구현</li>
-                <li>emotion theme을 통한 다크모드 전환 구현</li>
+                <li>Intersection Observer를 통한 스크롤 애니메이션 및 네비게이션 바 구현</li>
+                <li>Three.js를 통한 메인 페이지 3D 애니메이션 삽입</li>
+                <li>Emotion Theme을 통한 자연스러운 다크모드 전환 구현</li>
+                <li>데스크탑, 모바일을 위한 반응형 디자인 구현</li>
               </ul>
             </td>
           </tr>
