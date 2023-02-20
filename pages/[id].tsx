@@ -19,15 +19,13 @@ const Detail = ({ page, blocks }: InferGetStaticPropsType<typeof getStaticProps>
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <main>
-        <Header title={page.title} tags={page.tags} />
-        <hr />
-        <ul>
-          {blocks.map((block, index) => (
-            <Block block={block} key={index} />
-          ))}
-        </ul>
-      </main>
+      <Header title={page.title} tags={page.tags} />
+      <hr />
+      <ul>
+        {blocks.map((block, index) => (
+          <Block block={block} key={index} />
+        ))}
+      </ul>
       <hr />
       <Navigation blocks={blocks} />
     </>
