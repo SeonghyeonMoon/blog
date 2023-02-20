@@ -1,9 +1,10 @@
-import { css, ThemeProvider, useTheme } from '@emotion/react';
-import { AnimatePresence, motion, useScroll, useSpring } from 'framer-motion';
+import { css, ThemeProvider } from '@emotion/react';
+import { AnimatePresence, motion } from 'framer-motion';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { DarkModeToggleButton, Footer, GoogleAnalystics, Header, JenniferFront } from '@/components/Common';
+import ProgressBar from '@/components/Common/ProgressBar';
 import GlobalStyles from '@/styles/GlobalStyles';
 import { darkTheme, lightTheme } from '@/styles/theme';
 import type { AppProps } from 'next/app';
@@ -26,10 +27,7 @@ const variants = {
 };
 
 const App = ({ Component, pageProps }: AppProps) => {
-  const theme = useTheme();
   const { asPath } = useRouter();
-  const { scrollYProgress } = useScroll();
-  const scaleX = useSpring(scrollYProgress, { stiffness: 800, damping: 100 });
   const [isDark, setIsDark] = useState(true);
 
   const toggleTheme = () => {
@@ -64,19 +62,7 @@ const App = ({ Component, pageProps }: AppProps) => {
             <Component {...pageProps} />
           </motion.main>
         </AnimatePresence>
-        <motion.div
-          style={{ scaleX }}
-          css={css`
-            height: 5px;
-            background-color: ${theme.font};
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 100;
-            transform-origin: 0;
-          `}
-        />
+        <ProgressBar />
         <Footer />
       </ThemeProvider>
     </>
