@@ -70,11 +70,10 @@ const Header = ({ toggleTheme }: HeaderProps) => {
         <button
           onClick={toggleTheme}
           css={css`
-            padding: 5px 7px;
+            padding: 3px 7px;
             border-radius: 5px;
             border: none;
-            background-color: ${theme.default};
-            color: ${theme.font};
+            background-color: ${theme.hr};
             transition: all 0.25s linear;
 
             &:hover {
@@ -86,7 +85,7 @@ const Header = ({ toggleTheme }: HeaderProps) => {
             }
           `}
         >
-          <Image src='/moon.png' alt='moon' width={15} height={15} />
+          <Image src='/moon.png' alt='moon' width={20} height={20} />
         </button>
       </div>
     </header>
