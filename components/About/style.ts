@@ -7,6 +7,8 @@ const horizontalTableStyle = css`
       display: block;
       width: 100%;
       text-align: left;
+      border-top-width: 0.5px;
+      border-bottom-width: 0.5px;
     }
   }
 `;
