@@ -9,19 +9,19 @@ const SingleProject = () => {
       <table css={horizontalTableStyle}>
         <tbody>
           <tr>
-            <th>프로젝트 명</th>
+            <th>프로젝트명</th>
             <td>Strawberry Moon</td>
           </tr>
           <tr>
-            <th>개발 배경</th>
+            <th>프로젝트 배경</th>
             <td>딸기 농사를 통해 매일 단가와 수량 등을 수기로 계산해서 기록하시던 부모님의 편의성을 개선</td>
           </tr>
           <tr>
-            <th>개발 목표</th>
+            <th>프로젝트 목표</th>
             <td>날짜별 폼을 통해 입력을 용이하게 하고, 자동 계산 및 차트를 통해 부가적인 계산이 필요없게 만든다. </td>
           </tr>
           <tr>
-            <th>기간</th>
+            <th>프로젝트 기간</th>
             <td>2022.12~2022.12</td>
           </tr>
           <tr>
@@ -59,19 +59,19 @@ const SingleProject = () => {
       <table css={horizontalTableStyle}>
         <tbody>
           <tr>
-            <th>프로젝트 명</th>
+            <th>프로젝트명</th>
             <td>Notion API를 활용한 개인 블로그</td>
           </tr>
           <tr>
-            <th>개발 배경</th>
+            <th>프로젝트 배경</th>
             <td>자유롭게 편집이 가능한 개인 블로그의 필요성</td>
           </tr>
           <tr>
-            <th>개발 목표</th>
+            <th>프로젝트 목표</th>
             <td>Notion API를 통해서 포스팅을 관리하고, 직접 만들어 커스텀이 용이한 블로그 생성</td>
           </tr>
           <tr>
-            <th>기간</th>
+            <th>프로젝트 기간</th>
             <td>2023.01~진행 중</td>
           </tr>
           <tr>
