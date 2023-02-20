@@ -53,7 +53,6 @@ const GlobalStyles = () => {
         table {
           margin-bottom: 20px;
           width: 100%;
-          border: ${theme.gray} solid 1px;
           border-radius: 5px;
 
           th {
