@@ -15,18 +15,18 @@ const TeamProject = () => {
             <td>와글와글</td>
           </tr>
           <tr>
-            <th>개발 배경</th>
-            <td>회사, 학교 등의 커뮤니티 내에서 같은 관심사를 가신 사람들을 찾아 소그룹이 생성되는 과정의 번거로움</td>
+            <th>프로젝트 배경</th>
+            <td>회사, 학교 등 커뮤니티 내에서 같은 관심사를 가신 사람들을 찾아 소그룹이 생성되는 과정의 번거로움</td>
           </tr>
           <tr>
-            <th>개발 목표</th>
+            <th>프로젝트 목표</th>
             <td>
               관심사를 쉽게 등록하고, 관심사들을 크기가 속한 사람의 수에 비례한 원들로 시각화하여 나와 같은 관심사를
               가진 사람들과 커뮤니티 내의 관심사들을 알아가고 참여하는 과정을 쉽고 재미있게한다.
             </td>
           </tr>
           <tr>
-            <th>기간</th>
+            <th>프로젝트 기간</th>
             <td>2022.11~2022.12</td>
           </tr>
           <tr>
@@ -50,7 +50,7 @@ const TeamProject = () => {
             <td>Typescript, Next.js, React Query, Jest, Sass</td>
           </tr>
           <tr>
-            <th>기능</th>
+            <th>프로젝트 기능</th>
             <td>
               <div css={projectImagesStyle}>
                 <ProjectImage url='/wagle-intro.png' description='소개 페이지' />
@@ -66,7 +66,7 @@ const TeamProject = () => {
             </td>
           </tr>
           <tr>
-            <th>역할</th>
+            <th>프로젝트 역할</th>
             <td>
               <ul>
                 <li>
@@ -110,6 +110,7 @@ const TeamProject = () => {
           </tr>
         </tbody>
       </table>
+
       <table css={horizontalTableStyle}>
         <tbody>
           <tr>
@@ -146,11 +147,10 @@ const TeamProject = () => {
           </tr>
           <tr>
             <th>사용 기술</th>
-
             <td>React, Redux, Styled Components, Socket.io</td>
           </tr>
           <tr>
-            <th>기능</th>
+            <th>프로젝트 기능</th>
             <td>
               <div
                 css={[
@@ -173,7 +173,7 @@ const TeamProject = () => {
             </td>
           </tr>
           <tr>
-            <th>역할</th>
+            <th>프로젝트 역할</th>
             <td>
               <ul>
                 <li>프로젝트 리더로 기획, 디자인, 개발, 배포 등을 포함한 풀 사이클 프로젝트 리드</li>
