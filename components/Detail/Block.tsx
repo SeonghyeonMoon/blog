@@ -123,7 +123,7 @@ const Block = ({ block }: BlockProps) => {
 
     case 'code':
       return (
-        <SyntaxHighlighter language='javascript' style={dracula}>
+        <SyntaxHighlighter language={block[type].language} style={dracula}>
           {block[type].rich_text.reduce((acc: string, cur: RichTextItemResponse) => acc + cur.plain_text, '')}
         </SyntaxHighlighter>
       );
