@@ -1,12 +1,12 @@
 import { css, useTheme } from '@emotion/react';
-import Image from 'next/image';
 
+// TODO: 타입 정의 보충
 type BookmarkProps = {
-  url: string;
-  title: string;
-  description: string;
-  favicon: string;
-  image: string;
+  url?: string;
+  title?: string;
+  description?: string;
+  favicon?: string;
+  image?: string;
 };
 
 const Bookmark = ({ url, title, description, favicon, image }: BookmarkProps) => {
@@ -60,7 +60,7 @@ const Bookmark = ({ url, title, description, favicon, image }: BookmarkProps) =>
             gap: 6px;
           `}
         >
-          <Image src={favicon} alt={'favicon'} width={16} height={16} />
+          <img src={favicon ?? ''} alt={'favicon'} width={16} height={16} />
           <p
             css={css`
               font-size: 12px;
@@ -74,7 +74,7 @@ const Bookmark = ({ url, title, description, favicon, image }: BookmarkProps) =>
         </div>
       </div>
       <div>
-        <Image
+        <img
           src={image as string}
           alt={'bookmark'}
           width={200}
