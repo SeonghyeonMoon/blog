@@ -1,12 +1,19 @@
 import Head from 'next/head';
+import { useEffect, useState } from 'react';
 import { fetchBlocks, fetchPage, fetchPageList } from '@/apis/notion';
 import { Block, Header } from '@/components/Detail';
-import Navigation from '@/components/Detail/Navigation';
+import Navigation, { NavigationData } from '@/components/Detail/Navigation';
 import useFade from '@/hooks/useFade';
+import bindNavigationBlocks from '@/utils/bindNavigationBlocks';
 import type { GetStaticPropsContext, InferGetStaticPropsType } from 'next';
 
 const Detail = ({ page, blocks }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  useFade({ selector: 'main > *, main > ul > *' });
+  useFade({ selector: 'main > *, main > ul > *, li' });
+  const [navigateData, setNavigateData] = useState<NavigationData>([]);
+
+  useEffect(() => {
+    setNavigateData(bindNavigationBlocks(blocks));
+  }, [blocks]);
 
   if (!page || !blocks) {
     return null;
@@ -25,7 +32,7 @@ const Detail = ({ page, blocks }: InferGetStaticPropsType<typeof getStaticProps>
         <Block block={block} key={index} />
       ))}
       <hr />
-      <Navigation blocks={blocks} />
+      <Navigation navigationData={navigateData} />
     </>
   );
 };

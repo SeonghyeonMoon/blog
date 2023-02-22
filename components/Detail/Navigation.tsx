@@ -1,13 +1,24 @@
 import { css, useTheme } from '@emotion/react';
 import { useEffect, useState } from 'react';
-import Text from '@/components/Detail/Text';
-import type { BlockObjectResponse } from '@notionhq/client/build/src/api-endpoints';
+import type { RichTextItemResponse } from '@notionhq/client/build/src/api-endpoints';
+
+export type NavigationData = {
+  id: string;
+  type: 'heading_2';
+  text: RichTextItemResponse[];
+  children?: {
+    id: string;
+    type: 'heading_3';
+    text: RichTextItemResponse[];
+  }[];
+}[];
 
 type NavigationProps = {
-  blocks: BlockObjectResponse[];
+  navigationData: NavigationData;
 };
 
-const Navigation = ({ blocks }: NavigationProps) => {
+// TODO: 컴포넌트 분리
+const Navigation = ({ navigationData }: NavigationProps) => {
   const [viewId, setViewId] = useState('');
 
   const theme = useTheme();
@@ -21,10 +32,10 @@ const Navigation = ({ blocks }: NavigationProps) => {
           }
         });
       },
-      { rootMargin: '-30% 0%' },
+      { rootMargin: '-10% 0% -80%' },
     );
 
-    document.querySelectorAll('main > ul > h2, main > ul > h3').forEach((element) => {
+    document.querySelectorAll('main > h2, main > h3').forEach((element) => {
       observer.observe(element);
     });
   }, []);
@@ -45,52 +56,46 @@ const Navigation = ({ blocks }: NavigationProps) => {
         }
       `}
     >
-      {blocks.map((block, index) => {
-        // @ts-ignore
-        if (block.type === 'heading_2') {
-          const id = block[block.type].rich_text.map(({ plain_text }) => plain_text).join('');
+      <ol>
+        {navigationData.map((block) => {
+          const text = block.text[0].plain_text;
           return (
-            <div
-              key={index}
-              css={css`
-                transition: color 0.25s linear, transform 0.25s linear;
-                &:hover {
-                  color: ${theme.font};
-                  cursor: pointer;
-                  transform: scale(1.025);
-                }
-                ${viewId === id ? `color: ${theme.font}` : ''}
-              `}
-            >
-              <a href={`#${id}`}>
-                <Text textList={block.heading_2.rich_text} />
+            <li key={block.id}>
+              <a
+                href={`#${block.id}`}
+                css={css`
+                  ${viewId === block.id ? `color: ${theme.font}` : ''};
+                `}
+              >
+                {text}
               </a>
-            </div>
+              {block.children && (
+                <ol
+                  css={css`
+                    padding-left: 15px;
+                  `}
+                >
+                  {block.children.map((child) => {
+                    const text = child.text[0].plain_text;
+                    return (
+                      <li key={child.id}>
+                        <a
+                          href={`#${child.id}`}
+                          css={css`
+                            ${viewId === child.id ? `color: ${theme.font}` : ''};
+                          `}
+                        >
+                          {text}
+                        </a>
+                      </li>
+                    );
+                  })}
+                </ol>
+              )}
+            </li>
           );
-        }
-        if (block.type === 'heading_3') {
-          const id = block[block.type].rich_text.map(({ plain_text }) => plain_text).join('');
-          return (
-            <div
-              key={index}
-              css={css`
-                padding-left: 10px;
-                transition: color 0.25s linear, transform 0.25s linear;
-                &:hover {
-                  color: ${theme.font};
-                  cursor: pointer;
-                  transform: scale(1.025);
-                }
-                ${viewId === id ? `color: ${theme.font}` : ''}
-              `}
-            >
-              <a href={`#${block[block.type].rich_text.map(({ plain_text }) => plain_text).join('')}`}>
-                <Text textList={block.heading_3.rich_text} />
-              </a>
-            </div>
-          );
-        }
-      })}
+        })}
+      </ol>
     </nav>
   );
 };
