@@ -1,4 +1,6 @@
 import { Client, isFullBlock, isFullPage } from '@notionhq/client';
+import bindListBlocks from '@/utils/bindListBlocks';
+import convertBlock from '@/utils/convertBlock';
 
 const notion = new Client({ auth: process.env.NOTION_TOKEN });
 
@@ -27,23 +29,23 @@ export const fetchPage = async (pageId: string) => {
 
 export const fetchBlocks = async (blockId: string) => {
   const { results } = await notion.blocks.children.list({ block_id: blockId });
-  const blocks = results.filter(isFullBlock);
+  const blocks = await Promise.all(results.filter(isFullBlock).map(convertBlock));
 
-  const hasChildrenBlocks = blocks.filter((block) => block.has_children);
+  const hasChildrenBlocks = blocks.filter((block) => block?.hasChildren);
   while (hasChildrenBlocks.length > 0) {
     const block = hasChildrenBlocks.pop();
     if (!block) continue;
     const { results } = await notion.blocks.children.list({ block_id: block.id });
-    const blockObjectResponse = results.filter(isFullBlock);
+    const blockObjectResponse = await Promise.all(results.filter(isFullBlock).map(convertBlock));
 
     // @ts-ignore
     block.children = blockObjectResponse.map((block) => {
-      if (block.has_children) {
+      if (block?.hasChildren) {
         hasChildrenBlocks.push(block);
       }
       return block;
     });
   }
 
-  return blocks;
+  return bindListBlocks(blocks);
 };
