@@ -1,4 +1,5 @@
-import Block from './Block';
+import Navigation from '@/components/Detail/Navigation';
+import Block from './Block/Block';
 import Header from './Header';
 
-export { Block, Header };
+export { Navigation, Block, Header };

@@ -21,11 +21,9 @@ const Detail = ({ page, blocks }: InferGetStaticPropsType<typeof getStaticProps>
       </Head>
       <Header title={page.title} tags={page.tags} />
       <hr />
-      <ul>
-        {blocks.map((block, index) => (
-          <Block block={block} key={index} />
-        ))}
-      </ul>
+      {blocks.map((block, index) => (
+        <Block block={block} key={index} />
+      ))}
       <hr />
       <Navigation blocks={blocks} />
     </>
@@ -45,26 +43,5 @@ export const getStaticProps = async ({ params }: GetStaticPropsContext) => {
   const id = params?.id;
   const page = await fetchPage(id as string);
   const blocks = await fetchBlocks(id as string);
-  const ogs = require('open-graph-scraper');
-
-  const bookmarkDataInjectedBlock = await Promise.all(
-    blocks.map(async (block) => {
-      if (block.type !== 'bookmark') return block;
-      const { result } = await ogs({ url: block.bookmark.url });
-      return {
-        ...block,
-        bookmark: {
-          ...block.bookmark,
-          title: result.ogTitle || result.twitterTitle || '',
-          description: result.ogDescription || result.twitterDescription || '',
-          image: (typeof result.ogImage === 'object' && !Array.isArray(result.ogImage) && result.ogImage.url) || '',
-          favicon: result.favicon.startsWith('https://')
-            ? result.favicon
-            : 'https://' + result.requestUrl.split('/').slice(2, 3).join('') + result.favicon,
-        },
-      };
-    }),
-  );
-
-  return { props: { page, blocks: bookmarkDataInjectedBlock } };
+  return { props: { page, blocks } };
 };
