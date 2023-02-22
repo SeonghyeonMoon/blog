@@ -21,9 +21,6 @@ const TagList = ({ tags }: TagListProps) => {
       {tags.map(({ id, name, color }) => (
         <li
           key={id}
-          onClick={() => {
-            console.log(name);
-          }}
           css={css`
             font-size: 14px;
             background-color: ${theme[color || 'default']};
