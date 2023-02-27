@@ -8,7 +8,7 @@ import bindNavigationBlocks from '@/utils/bindNavigationBlocks';
 import type { GetStaticPropsContext, InferGetStaticPropsType } from 'next';
 
 const Detail = ({ page, blocks }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  useFade({ selector: 'main > *, ul > *, ol > *' });
+  useFade({ selector: 'main > *' });
   const [navigateData, setNavigateData] = useState<NavigationData>([]);
 
   useEffect(() => {
