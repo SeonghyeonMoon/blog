@@ -15,12 +15,7 @@ const Description = () => {
         }
       `}
     >
-      <div
-        css={css`
-          @media (max-width: 900px) {
-          align-self: flex-start;
-        `}
-      >
+      <div>
         <h2>안녕하세요.</h2>
         <h2>프론트엔드 개발자 문성현입니다.</h2>
         <p>학습하면서 느낀 점과 공부한 내용을 기록하고 공유하는 공간입니다.</p>
