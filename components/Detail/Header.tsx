@@ -4,10 +4,10 @@ import type { TagType } from '@/types';
 
 type HeaderProps = {
   title: string;
-  tags: TagType[];
+  tagList: TagType[];
 };
 
-const Header = ({ title, tags }: HeaderProps) => {
+const Header = ({ title, tagList }: HeaderProps) => {
   return (
     <header
       css={css`
@@ -17,7 +17,7 @@ const Header = ({ title, tags }: HeaderProps) => {
         padding: 20px 0;
       `}
     >
-      <TagList tags={tags} />
+      <TagList tagList={tagList} />
       <h1
         css={css`
           margin-bottom: 10px;

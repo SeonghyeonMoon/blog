@@ -9,7 +9,7 @@ type TagType = {
 type PostType = {
   id: string;
   title: string;
-  tags: TagType[];
+  tagList: TagType[];
 };
 
 export type { TagType, PostType };

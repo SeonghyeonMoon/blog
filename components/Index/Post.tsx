@@ -5,7 +5,7 @@ import type { PostType } from '@/types';
 
 type PostProps = PostType;
 
-const Post = ({ id, tags, title }: PostProps) => {
+const Post = ({ id, tagList, title }: PostProps) => {
   const theme = useTheme();
 
   return (
@@ -24,7 +24,7 @@ const Post = ({ id, tags, title }: PostProps) => {
           }
         `}
       >
-        <TagList tags={tags} />
+        <TagList tagList={tagList} />
         <h2
           css={css`
             margin-top: 0;

@@ -1,14 +1,14 @@
 import { css, Theme, useTheme } from '@emotion/react';
 
 type TagListProps = {
-  tags: {
+  tagList: {
     id: string;
     name: string;
     color: keyof Theme;
   }[];
 };
 
-const TagList = ({ tags }: TagListProps) => {
+const TagList = ({ tagList }: TagListProps) => {
   const theme = useTheme();
   return (
     <ul
@@ -18,7 +18,7 @@ const TagList = ({ tags }: TagListProps) => {
         margin-bottom: 5px;
       `}
     >
-      {tags.map(({ id, name, color }) => (
+      {tagList.map(({ id, name, color }) => (
         <li
           key={id}
           css={css`

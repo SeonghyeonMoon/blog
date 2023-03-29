@@ -12,7 +12,7 @@ export const fetchPageList = async (databaseId: string) => {
     .map((page) => ({
       id: page.id,
       title: page.properties.name.type === 'title' ? page.properties.name.title[0].plain_text : '',
-      tags: page.properties.tags.type === 'multi_select' ? page.properties.tags.multi_select : [],
+      tagList: page.properties.tags.type === 'multi_select' ? page.properties.tags.multi_select : [],
       order: page.properties.order.type === 'number' ? page.properties.order.number : 0,
     }))
     .sort((a, b) => (a.order ?? Infinity) - (b.order ?? Infinity));
@@ -23,7 +23,7 @@ export const fetchPage = async (pageId: string) => {
   if (!isFullPage(page)) return;
   return {
     title: page.properties.name.type === 'title' ? page.properties.name.title[0].plain_text : '',
-    tags: page.properties.tags.type === 'multi_select' ? page.properties.tags.multi_select : [],
+    tagList: page.properties.tags.type === 'multi_select' ? page.properties.tags.multi_select : [],
   };
 };
 
