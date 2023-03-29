@@ -32,13 +32,10 @@ export const getPostList = async (): Promise<PostType[]> => {
   return results.filter(isFullPage).filter(byPublic).sort(byOrder).map(convertPost);
 };
 
-export const fetchPage = async (pageId: string) => {
-  const page = await notion.pages.retrieve({ page_id: pageId });
-  if (!isFullPage(page)) return;
-  return {
-    title: page.properties.name.type === 'title' ? page.properties.name.title[0].plain_text : '',
-    tagList: page.properties.tags.type === 'multi_select' ? page.properties.tags.multi_select : [],
-  };
+export const getPost = async (id: string): Promise<PostType> => {
+  const page = await notion.pages.retrieve({ page_id: id });
+  if (!isFullPage(page)) throw new Error('Page is not found.');
+  return convertPost(page);
 };
 
 export const fetchBlocks = async (blockId: string) => {

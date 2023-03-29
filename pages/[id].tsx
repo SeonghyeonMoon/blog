@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
-import { fetchBlocks, fetchPage, getPostList } from '@/apis/notion';
+import { fetchBlocks, getPost, getPostList } from '@/apis/notion';
 import { Block, Header } from '@/components/Detail';
 import Navigation, { NavigationData } from '@/components/Detail/Navigation';
 import useFade from '@/hooks/useFade';
@@ -47,7 +47,7 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async ({ params }: GetStaticPropsContext) => {
   const id = params?.id;
-  const page = await fetchPage(id as string);
+  const page = await getPost(id as string);
   const blocks = await fetchBlocks(id as string);
   return { props: { page, blocks } };
 };
