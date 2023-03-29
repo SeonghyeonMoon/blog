@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import { useState } from 'react';
-import { fetchPageList } from '@/apis/notion';
+import { getPostList } from '@/apis/notion';
 import { Description, PostList, SearchBar } from '@/components/Index';
 import useFade from '@/hooks/useFade';
 import type { InferGetStaticPropsType } from 'next';
@@ -35,7 +35,6 @@ const Index = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
 export default Index;
 
 export const getStaticProps = async () => {
-  const databaseId = process.env.NOTION_DATABASE_ID;
-  const posts = await fetchPageList(databaseId!);
+  const posts = await getPostList();
   return { props: { posts } };
 };
