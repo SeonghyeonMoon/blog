@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import { useState } from 'react';
-import { getPostList } from '@/apis/notion';
+import { getPostList } from '@/apis/post';
 import { Description, PostList, SearchBar } from '@/components/Index';
 import useFade from '@/hooks/useFade';
 import type { InferGetStaticPropsType } from 'next';

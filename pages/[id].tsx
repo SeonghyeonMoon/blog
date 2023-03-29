@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
-import { fetchBlocks, getPost, getPostList } from '@/apis/notion';
+import { fetchBlocks, getPost, getPostList } from '@/apis/post';
 import { Block, Header } from '@/components/Detail';
 import Navigation, { NavigationData } from '@/components/Detail/Navigation';
 import useFade from '@/hooks/useFade';
